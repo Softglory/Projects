@@ -1,0 +1,91 @@
+﻿@model Model.ViewModels.GeneralSearchView
+<div class="vc_row wpb_row vc_row-fluid">
+    <div class="wpb_column vc_column_container vc_col-sm-12">
+        <div class="vc_column-inner ">
+            <div class="wpb_wrapper">
+                <section class="new-hero-explore-section with-t-section">
+                    <div class="new-layer-image"> <img class="img-responsive" src="~/Content/wp-content/themes/dwt-listing/assets/images/overlay_2.png"></div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+                                <div class="dwt-new-hero">
+                                    <h3>موسوعة الدليل التجارى</h3>
+                                    <span class="sub-head" style="color:wheat; font-size:25px">إبحث و إكتشف فى مونتريال</span>
+                                    <div class="new-hero-search-bar">
+                                        @using (Html.BeginForm("GeneralSearch", "Search", FormMethod.Post, new { enctype = "multipart/form-data", @class = "custom-style-search" }))
+                                        {
+                                            <div class="row" style="font-size:22px">
+                                                <div class="form-group input-iconz col-lg-4">
+                                                    <div class="typeahead__container">
+                                                        <div class="typeahead__field">
+                                                            <div class="typeahead__query">
+                                                                <i class="ti-search"></i>
+                                                                @Html.EditorFor(model => model.SearchKeyWord, new { htmlAttributes = new { @class = "dget_listings for_s_home", placeholder = "تبحث عن ...", type = "search", autocomplete = "off" ,name = "by_title" } })
+                                                               
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group input-iconz col-lg-3">
+                                                    <i class="ti-location-pin"></i>
+                                                    <select data-placeholder="موجود فى ..." class="allow_clear" name="l_category">
+                                                        <option value="district1">منطقة 1</option>
+                                                        <option value="district2">منطقة 2</option>
+                                                        <option value="district3">منطقة 3</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group input-iconz  col-lg-3">
+                                                    <i class="ti-bag"></i>
+                                                    <select class="allow_clear" name="l_tag" style="font-size:25px" data-placeholder="فئة ..">
+                                                        <option value="168">استثمار</option>
+                                                        <option value="171">الإدارات</option>
+                                                        <option value="167">العقارات</option>
+                                                        <option value="226">الفنادق</option>
+                                                        <option value="208">الفنون الجميلة الفنانين</option>
+                                                        <option value="225">المدربين اللياقة الشخصية</option>
+                                                        <option value="206">المعارض الفنية</option>
+                                                        <option value="221">النوادي الصحية</option>
+                                                        <option value="222">برامج التمارين واللياقة البدنية</option>
+                                                        <option value="207">تجار والاستشاريين</option>
+                                                        <option value="223">جيم</option>
+                                                        <option value="193">خدمة السيارات الكهربائية</option>
+                                                        <option value="170">شقق سكنية</option>
+                                                        <option value="209">طب</option>
+                                                        <option value="157">طعام</option>
+                                                        <option value="210">علاج بدني</option>
+                                                        <option value="188">قطع غيار السيارات ومستلزماتها</option>
+                                                        <option value="182">ماكياج</option>
+                                                        <option value="231">متاجر متنوعة</option>
+                                                        <option value="202">محلات الملابس</option>
+                                                        <option value="185">مستحضرات التجميل</option>
+                                                        <option value="229">مستهلكى الكترونيات</option>
+                                                        <option value="240">مطاعم</option>
+                                                        <option value="238">مطاعم آسيوية</option>
+                                                        <option value="237">مطاعم العائلة</option>
+                                                        <option value="236">مطاعم يابانية</option>
+                                                        <option value="179">معالج التدليك</option>
+                                                        <option value="169">منازل</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-lg-2">
+                                                    <input value="بحث " class="submit" type="submit">
+                                                </div>
+                                            </div>
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="scroll-to ">
+                        <a class="arrow bounce scroller" href="#elegent_catz" title=""><i class=" ti-angle-down  "></i></a>
+                    </div>
+
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+

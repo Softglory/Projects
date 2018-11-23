@@ -1,0 +1,153 @@
+﻿@model Model.ViewModels.AccountViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="navBarWithNoAd"></section>
+
+<div class="container mt-15 mb-30">
+
+
+    @if (Model == null)
+    {
+        <h2>إضافة مستخدم </h2>
+    }
+    else
+    {
+        <h2>تعديل البينات</h2>
+    }
+
+
+    @using (Html.BeginForm("Create", "Accounts", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.HiddenFor(model => model.CreatedOn)
+            @Html.HiddenFor(model => model.ModifiedOn)
+            @Html.HiddenFor(model => model.CompanyId)
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.Label("الإسم الأول", htmlAttributes: new { @class = "control-label col-md-2 required" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("الإسم الأخير", htmlAttributes: new { @class = "control-label col-md-2 required" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("المهنه", htmlAttributes: new { @class = "control-label col-md-2 required" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ProfessionTitle, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ProfessionTitle, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("رقم الهاتف", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("المكان", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("فيس بوك", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FacebookUrl, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FacebookUrl, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("تويتر", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TwitterUrl, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TwitterUrl, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("الموقع الكتروني", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Website, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Website, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">تحميل صورة البطاقة</label>
+                <div class="col-md-10">
+                    @if (Model == null || Model.CardImage == null)
+                    {
+                        <input type="file" name="file" id="files" />
+                    }
+                    else
+                    {
+                        <input type="file" name="file" id="files" />
+                        @*<label for="files" class="btn">@Model.CardImage</label>*@
+                        <img for="files" src="~/@Model.CardImage" onerror="this.src = '@HttpRuntime.AppDomainAppVirtualPath/Uploads/Default.jpg'" style="width:250px; height:90px" class="card-200">
+                    }
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("الحساب موجود", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(model => model.Status, htmlAttributes: new { @checked = true })
+                        @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @if (Model == null)
+                    {
+                        <input type="submit" value="اضافه" class="btn btn-success" />
+                    }
+                    else
+                    {
+                        <input type="submit" value="تعديل" class="btn btn-success" />
+                    }
+
+                </div>
+            </div>
+        </div>
+    }
+
+
+    @*<iframe id="map"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d853.1858891043844!2d29.918236344016297!3d31.20012306498776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1542884722379"
+                width="600" height="450" frameborder="0" style="border:0" allowfullscreen>
+
+        </iframe>*@
+    @if (Model == null)
+    {
+        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d5638176.819160078!2d-100.15124866088784!3d55.43832097290612!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1542898740328" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    }
+    else
+    {
+        @*<iframe id="map"
+            src="https://goo.gl/maps/sRYSn1uyxWP2"
+            width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>*@
+
+        <a href="http://maps.google.com/?q=1200 Pennsylvania Ave SE, Washington, District of Columbia, 20003"> Location</a>
+    }
+
+
+</div>

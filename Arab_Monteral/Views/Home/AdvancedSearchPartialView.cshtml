@@ -1,0 +1,98 @@
+﻿@model Model.ViewModels.SearchViewModel
+
+    <div class="wpb_column vc_column_container vc_col-sm-12" style="background-image:url('@HttpRuntime.AppDomainAppVirtualPath/Content/assets/trading_index_bg/bg.png'); background-repeat:no-repeat">
+        <div class="container">
+            <div class="right-area">
+                <div class="inner-content no-right">
+                    <div class="filtes-with-maps ">
+                        <div class="seprator">
+                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="heading-2">
+                                            <h2 style="color:darkred; padding-top:30px">بحث متقدم للدليل التجارى</h2>
+                                        </div>
+                                    </div>
+                                    
+                                @using (Html.BeginForm("Results", "Search", FormMethod.Post, new {enctype = "multipart/form-data"}))
+                                {
+                                    <div class="dwt-new-filterz">
+                                        <div class="col-md-6 col-xs-12 col-sm-4">
+                                            <div class="form-group dwt-for-map">
+                                                <div class="typeahead__container">
+                                                    <div class="typeahead__field">
+                                                        <div class="typeahead__query">
+                                                            @Html.EditorFor(model => model.FirstName, new {htmlAttributes = new {@class = "for_search_pages form-control specific_search", placeholder = "الإسم الأول", type = "search" } })
+                                                           
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12 col-sm-4">
+                                            <div class="form-group dwt-for-map">
+                                                <div class="typeahead__container">
+                                                    <div class="typeahead__field">
+                                                        <div class="typeahead__query">
+                                                            @Html.EditorFor(model => model.LastName, new {htmlAttributes = new {@class = "for_search_pages form-control specific_search", placeholder = "الإسم الأخير" } })
+                                                          
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12 col-sm-4">
+                                            <div class="form-group dwt-for-map">
+                                                <div class="typeahead__container">
+                                                    <div class="typeahead__field">
+                                                        <div class="typeahead__query">
+                                                            @Html.EditorFor(model => model.Phone, new {htmlAttributes = new {@class = "for_search_pages form-control specific_search", placeholder = "رقم التليفون" } })
+                                                           
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12 col-sm-4">
+                                            <div class="form-group dwt-for-map">
+                                                <div class="typeahead__container">
+                                                    <div class="typeahead__field">
+                                                        <div class="typeahead__query">
+                                                            @Html.EditorFor(model => model.Company, new {htmlAttributes = new {@class = "for_search_pages form-control specific_search", placeholder = "إسم الشركة" } })
+                                                           
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12 col-sm-12">
+                                            <div class="search-widget">
+                                                <div class="form-group specific-search">
+                                                    @Html.EditorFor(model => model.Location, new {htmlAttributes = new {@class = "for_search_pages form-control specific_search", placeholder = "العنوان او المدينة", @id = "address_location" } })
+
+                                                    <i class="detect-me fa fa-crosshairs"></i>
+                                                    <input name="latitude" type="hidden" id="search_lat" value="">
+                                                    <input name="longitude" type="hidden" id="search_lon" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12 col-sm-4">
+                                            <div class="search-widget">
+                                                <button type="submit" class="btn col-md-12 btn-theme" id="btnSearch">إظهر النتائج</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                }
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+

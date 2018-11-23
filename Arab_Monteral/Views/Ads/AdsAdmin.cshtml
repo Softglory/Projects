@@ -1,0 +1,80 @@
+﻿@model Model.ViewModels.AdViewModel
+
+@{
+    ViewBag.Title = "AdsAdmin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="navBarWithNoAd"></section>
+
+<div class="container mt-15 mb-30">
+    @if (Model == null)
+    {
+         <h2>إضافة اعلان </h2>
+    }
+    else
+    {
+         <h2>تحديث اعلان</h2>
+    }
+
+
+    @using (Html.BeginForm("AdsAdmin", "Ads", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.HiddenFor(model => model.CreatedOn)
+            @Html.HiddenFor(model => model.ModifiedOn)
+            @Html.HiddenFor(model => model.AdId)
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.Label("المهن", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.AdCarrer, ViewBag.CarrersList as SelectList, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.AdCarrer, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">تحميل صورة الإعلان</label>
+                <div class="col-md-10">
+                    @if (Model == null || Model.AdImage == null)
+                    {
+                        <input type="file" name="file" id="files" />
+                    }
+                    else
+                    {
+                        <input type="file" name="file" id="files" value="@Model.AdImage" />
+                        <img for="files" src="~/@Model.AdImage" onerror="this.src='@HttpRuntime.AppDomainAppVirtualPath/Uploads/Default.jpg'" style="width:250px; height:90px" class="card-200">
+                    }
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("الإعلان موجود", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(model => model.Status, htmlAttributes: new { @checked = true })
+                        @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @if (Model == null)
+                    {
+                        <input type="submit" value="اضافه" class="btn btn-success" />
+                    }
+                    else
+                    {
+                        <input type="submit" value="تعديل" class="btn btn-success" />
+                    }
+
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

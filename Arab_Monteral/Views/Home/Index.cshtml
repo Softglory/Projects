@@ -1,0 +1,332 @@
+﻿@model  List<Model.ViewModels.AccountViewModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="nopadding">
+    @Html.Partial("SearchPartialView", new Model.ViewModels.GeneralSearchView())
+    @Html.Partial("AdsPartialView")
+    @Html.Partial("CardsPartialView", @Model)
+    @Html.Partial("AdvancedSearchPartialView", new Model.ViewModels.SearchViewModel())
+    @Html.Partial("CarrersPartialView")
+
+    <div class="modal fade login" id="myModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog login animated">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"> أكمل البيانات الأتية و سنتصل بك فى أقرب فرصة</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="box">
+                        <div class="content">
+                            <input type="hidden" value="" id="pack_type" name="pack_type">
+                            <input type="hidden" value="" id="pack_id" name="pack_id">
+
+                            <div id="woo-pack" class="alert custom-alert custom-alert--warning none" role="alert">
+                                <div class="custom-alert__top-side">
+                                    <span class="alert-icon custom-alert__icon  ti-face-sad "></span>
+                                    <div class="custom-alert__body">
+                                        <h6 class="custom-alert__heading">
+                                            للاسف
+                                        </h6>
+                                        <div class="custom-alert__content">
+                                            يتوجب عليك القيام بتسجيل الدخول.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div id="social-success-register" class="alert custom-alert custom-alert--success none" role="alert">
+                                <div class="custom-alert__top-side">
+                                    <span class="alert-icon custom-alert__icon ti-face-smile "></span>
+                                    <div class="custom-alert__body">
+                                        <h6 class="custom-alert__heading">
+                                            تهنئة!
+                                        </h6>
+                                        <div class="custom-alert__content">
+                                            ألف مبروك! لقد سجلت بنجاح                 إعادة توجيه الرجاء الانتظار...
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="social-success-login" class="alert custom-alert custom-alert--success none" role="alert">
+                                <div class="custom-alert__top-side">
+                                    <span class="alert-icon custom-alert__icon ti-face-smile "></span>
+                                    <div class="custom-alert__body">
+                                        <h6 class="custom-alert__heading">
+                                            تهنئة!
+                                        </h6>
+                                        <div class="custom-alert__content">
+                                            تم تسجيل الدخول بنجاح                 إعادة توجيه الرجاء الانتظار...
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <button type="button" id="for-social" class="btn btn-theme sonu-button none  btn-block" data-loading-text="<i class='fa fa-spinner fa-spin '></i> المعالجة جارية"></button>
+
+                            <div class="form loginBox">
+
+                                <div id="login-info-messages" class="alert custom-alert custom-alert--warning none" role="alert">
+                                    <div class="custom-alert__top-side">
+                                        <span class="alert-icon custom-alert__icon  ti-face-sad "></span>
+                                        <div class="custom-alert__body">
+                                            <h6 class="custom-alert__heading">
+                                                للاسف
+                                            </h6>
+                                            <div class="custom-alert__content">
+                                                البريد الإلكتروني أو كلمة السر خاطئة
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div id="login-success-messages" class="alert custom-alert custom-alert--success none" role="alert">
+                                    <div class="custom-alert__top-side">
+                                        <span class="alert-icon custom-alert__icon ti-face-smile "></span>
+                                        <div class="custom-alert__body">
+                                            <h6 class="custom-alert__heading">
+                                                تهنئة!
+                                            </h6>
+                                            <div class="custom-alert__content">
+                                                تم تسجيل الدخول بنجاح                 إعادة توجيه الرجاء الانتظار...
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form method="post" id="login-form" data-disable="false">
+
+                                    <div class="form-group has-feedback">
+                                        <input id="log_email" class="form-control" type="email" placeholder="بريدك الإلكتروني" value="subscriber@yahoo.com" name="log_email" required>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <input id="log_password" class="form-control" type="text" placeholder="الإسم بالكامل" name="log_password" value="مدحت" required>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <input id="log_phone" class="form-control" type="tel" placeholder="رقم الموبايل" name="log_phone" style="direction:rtl" value="45 898 654 211 1+" required>
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        <div class="row">
+
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-theme sonu-button  btn-block" data-loading-text="<i class='fa fa-spinner fa-spin '></i> المعالجة جارية">إرسال البيانات</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+
+
+                        <div class="content registerBox" style="display:none;">
+                            <div class="form">
+
+                                <!-- still don't not email contact admin -->
+                                <div id="not-getting-emails" class="alert custom-alert custom-alert--warning none" role="alert">
+                                    <div class="custom-alert__top-side">
+                                        <span class="alert-icon custom-alert__icon  ti-face-sad "></span>
+                                        <div class="custom-alert__body">
+                                            <h6 class="custom-alert__heading">
+                                                مشكلة في الحصول على البريد الإلكتروني
+                                            </h6>
+                                            <div class="custom-alert__content">
+
+                                                <div class="clearfix"></div>
+                                                لا يزال لl تحصل على البريد الإلكتروني؟ &nbsp; <a href="index.html" class="link-info link-info--bordered" id="still_not"> الاتصال بنا</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div id="warning-messages" class="alert custom-alert custom-alert--info none" role="alert">
+                                    <div class="custom-alert__top-side">
+                                        <span class="alert-icon custom-alert__icon  ti-info-alt "></span>
+                                        <div class="custom-alert__body">
+                                            <h6 class="custom-alert__heading">
+                                                التحقق المطلوبة!
+                                            </h6>
+                                            <div class="custom-alert__content">
+                                                وسجل بنجاح. تم إرسال رسالة تفعيل بالبريد إلكتروني إلى عنوان البريد الإلكتروني المتوفر.                <div class="clearfix"></div>
+                                                لم تحصل على أي بريد إلكتروني؟ &nbsp; <a href="javascript:void(0)" class="link-info link-info--bordered" id="resend_email"> إرسال مرة أخرى</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div id="info-messages" class="alert custom-alert custom-alert--warning none" role="alert">
+                                    <div class="custom-alert__top-side">
+                                        <span class="alert-icon custom-alert__icon  ti-info-alt "></span>
+                                        <div class="custom-alert__body">
+                                            <h6 class="custom-alert__heading">
+                                                البريد الالكتروني موجود بالفعل
+                                            </h6>
+                                            <div class="custom-alert__content">
+                                                يرجى تجربة بريد إلكتروني آخر أو تسجيل الدخول.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="success-messages" class="alert custom-alert custom-alert--success none" role="alert">
+                                    <div class="custom-alert__top-side">
+                                        <span class="alert-icon custom-alert__icon  ti-check "></span>
+                                        <div class="custom-alert__body">
+                                            <h6 class="custom-alert__heading">
+                                                تهنئة!
+                                            </h6>
+                                            <div class="custom-alert__content">
+                                                لقد قمت بالتسجيل بنجاح!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                .
+
+                                <form method="post" id="register-form" data-disable="false">
+
+                                    <div class="form-group has-feedback">
+                                        <input id="user-name" class="form-control" data-error="من فضلك قم بملء هذا الحقل لأنه مطلوب." type="text" placeholder="اسمك" name="display_name" required>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+
+                                    <div class="form-group has-feedback">
+                                        <input id="user-email" class="form-control" data-error="من فضلك قم بملء هذا الحقل لأنه مطلوب." type="email" placeholder="بريدك الإلكتروني" name="email" required>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <div class="form-group has-feedback">
+                                        <input data-error="من فضلك قم بملء هذا الحقل لأنه مطلوب." id="inputPassword" data-minlength="5" class="form-control" type="password" placeholder="كلمة المرور الخاصة بك" name="password" required>
+                                        <div class=" help-block with-errors"></div>
+                                    </div>
+
+                                    <div class="term-conditionz form-group">
+
+                                        <input class="custom-checkbox" type="checkbox" id="terms_cond" name="terms_cond" data-error="الشروط والأحكام مطلوبة." required>
+                                        <label for="terms_cond">الموافقة على <a href="index.html" target="_blank">الشروط والأحكام</a></label>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <input type="hidden" value="no" name="is_captcha" />
+                                    <div id="captcha-messages" class="alert custom-alert custom-alert--warning none" role="alert">
+                                        <div class="custom-alert__top-side">
+                                            <span class="alert-icon custom-alert__icon  ti-face-sad "></span>
+                                            <div class="custom-alert__body">
+                                                <h6 class="custom-alert__heading">
+                                                    للاسف
+                                                </h6>
+                                                <div class="custom-alert__content">
+                                                    الرجاء التأكد من رمز التحقق captcha
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-theme sonu-button  btn-block" data-loading-text="<i class='fa fa-spinner fa-spin '></i> معالجة">انشئ حساب</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="forgot login-footer">
+                    </div>
+                    <div class="forgot register-footer" style="display:none">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Forget Password Model -->
+    <div class="modal login  fade" id="forget-pass" tabindex="-1" role="dialog">
+        <div class="modal-dialog login  animated">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">هل نسيت كلمة المرور؟</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="box">
+                        <div class="content">
+                            <div class="form loginBox">
+
+
+                                <div id="forget-messages" class="alert custom-alert custom-alert--success none" role="alert">
+                                    <div class="custom-alert__top-side">
+                                        <span class="alert-icon custom-alert__icon  ti-check-box "></span>
+                                        <div class="custom-alert__body">
+                                            <h6 class="custom-alert__heading">
+                                                تهنئة!
+                                            </h6>
+                                            <div class="custom-alert__content">
+                                                كلمة المرور المرسلة على بريدك الإلكتروني.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div id="not-responding" class="alert custom-alert custom-alert--info none" role="alert">
+                                    <div class="custom-alert__top-side">
+                                        <span class="alert-icon custom-alert__icon  ti-info-alt "></span>
+                                        <div class="custom-alert__body">
+                                            <h6 class="custom-alert__heading">
+                                                حدث خطأ ما!
+                                            </h6>
+                                            <div class="custom-alert__content">
+                                                استجاب الملقم مع التعليمات البرمجية {{statusCode}}.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="not-exist" class="alert custom-alert custom-alert--warning none" role="alert">
+                                    <div class="custom-alert__top-side">
+                                        <span class="alert-icon custom-alert__icon ti-alert "></span>
+                                        <div class="custom-alert__body">
+                                            <h6 class="custom-alert__heading">
+                                                العثور على النتيجة &quot;لا أوووبسس&quot;!
+                                            </h6>
+                                            <div class="custom-alert__content">
+                                                البريد الالكتروني
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form method="post" id="forget-password" data-disable="false">
+                                    <div class="form-group has-feedback">
+                                        <input name="dwt_listing_forgot_email" id="dwt_listing_forgot_email" class="form-control" type="email" placeholder="بريدك الإلكتروني" data-error="أكتب بريدك الإلكتروني" required>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-theme sonu-button  btn-block" data-loading-text="<i class='fa fa-spinner fa-spin '></i> المعالجة جارية">إعادة تعيين حسابي</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="dwt_listing_ajax_url" value="wp-admin/admin-ajax.html" />
+    <input type="hidden" id="theme_path" value="wp-content/themes/dwt-listing/index.html" />
+    <input type="hidden" id="map_lat" value="40.7127837" />
+    <input type="hidden" id="map_long" value="-74.00594130000002" />
+    <input type="hidden" id="ip_type" value="ip_api" />
+    <input type="hidden" id="is_rtl" value="1" />
+    <input type="hidden" id="profile_page" value="profile/indexdd87.html?listing-type=profile-update" />
+    <input type="hidden" id="facebook_key" value="428770410876802" /><input type="hidden" id="google_key" value="744750397919-2v1ddakqh0nqvi99iidbkm45jnfcssu0.apps.googleusercontent.com" /><input type="hidden" id="redirect_uri" value="https://listing.downtown-directory.com/" /><input type="hidden" id="is_tracking_on" value="0" />
+
+</div>

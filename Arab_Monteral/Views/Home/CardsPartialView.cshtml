@@ -1,0 +1,59 @@
+﻿@model  List<Model.ViewModels.AccountViewModel>
+
+<section id="dwt_listing_products-related" style="background-image:url('@HttpRuntime.AppDomainAppVirtualPath/Content/assets/images/world_map.png')">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12" style="padding-bottom:20px">
+                <div class="header-type-1">
+                    <h2 style="color:white; text-align:center" class="center">أحدث الكروت المضافة</h2>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12 products ">
+                <div class="related-produt-slider owl-carousel owl-theme">
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                         {
+                             <div class="item">
+                                 <a href="~/Accounts/AccountProfile/@item.AccountId">
+                                     <div class="dwt_listing_shop-grid">
+                                         <div class="dwt_listing_shop-grid-description">
+                                             <div class="country-images">
+                                                 <img class="img-responsive" alt="" src="~/@item.CardImage" onerror="this.src = '@HttpRuntime.AppDomainAppVirtualPath/Uploads/Default.jpg'">
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </a>
+                             </div>
+                         }
+                    }
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section scripts{
+    <script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            if (n > x.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex - 1].style.display = "block";
+        }
+    </script>
+}

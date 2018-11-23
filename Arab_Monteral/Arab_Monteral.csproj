@@ -1,0 +1,944 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7757024B-B143-48DF-9B83-1D87E5ECC8EC}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Arab_Monteral</RootNamespace>
+    <AssemblyName>Arab_Monteral</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.0.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.0.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Data\bin\Debug\Data.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Model\bin\Debug\Model.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.5.1\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.5.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.5.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.5.1\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.5.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.5.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\Bootstrapper.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RModule.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\AdsController.cs" />
+    <Compile Include="Controllers\CompanyController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProfessionsController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\ajax.googleapis.com\ajax\libs\webfont\1.5.3\webfont.js" />
+    <Content Include="Content\assets\banners\engineering.jpg" />
+    <Content Include="Content\assets\cards\ABAL.jpg" />
+    <Content Include="Content\assets\civil_engineer.jfif" />
+    <Content Include="Content\assets\images\hp_banner.jpg" />
+    <Content Include="Content\assets\images\world-map.png" />
+    <Content Include="Content\assets\images\world_map.jpg" />
+    <Content Include="Content\assets\images\world_map.png" />
+    <Content Include="Content\assets\js\slider.js" />
+    <Content Include="Content\assets\members\1_hala.jpg" />
+    <Content Include="Content\assets\member_work_images\1_hala\4w9a7856sky_v2-h_2018.jpg" />
+    <Content Include="Content\assets\member_work_images\1_hala\commercial-real-estate-equity.jpg" />
+    <Content Include="Content\assets\member_work_images\1_hala\hp-slider-01.jpg" />
+    <Content Include="Content\assets\member_work_images\1_hala\member_work_images.jpg" />
+    <Content Include="Content\assets\professions\accounting.jpg" />
+    <Content Include="Content\assets\professions\banking.jpg" />
+    <Content Include="Content\assets\professions\cars.jpg" />
+    <Content Include="Content\assets\professions\cosmetology.jpg" />
+    <Content Include="Content\assets\professions\education.jpg" />
+    <Content Include="Content\assets\professions\furniture.jpg" />
+    <Content Include="Content\assets\professions\insurance.jpg" />
+    <Content Include="Content\assets\professions\law.jpg" />
+    <Content Include="Content\assets\professions\medical.jpg" />
+    <Content Include="Content\assets\professions\old\cosmetology.jpg" />
+    <Content Include="Content\assets\professions\old\education.jpg" />
+    <Content Include="Content\assets\professions\old\furniture.jpg" />
+    <Content Include="Content\assets\professions\old\insurance.jpg" />
+    <Content Include="Content\assets\professions\old\law.jpg" />
+    <Content Include="Content\assets\professions\old\medical.jpg" />
+    <Content Include="Content\assets\professions\old\real_estates.jpg" />
+    <Content Include="Content\assets\professions\old\restaurants.jpg" />
+    <Content Include="Content\assets\professions\old\sewing.jpg" />
+    <Content Include="Content\assets\professions\old\shaving.jpg" />
+    <Content Include="Content\assets\professions\old\tourism.jpg" />
+    <Content Include="Content\assets\professions\old\trading.jpg" />
+    <Content Include="Content\assets\professions\real_estates.jpg" />
+    <Content Include="Content\assets\professions\restaurants.jpg" />
+    <Content Include="Content\assets\professions\sewing.jpg" />
+    <Content Include="Content\assets\professions\shaving.jpg" />
+    <Content Include="Content\assets\professions\tourism.jpg" />
+    <Content Include="Content\assets\professions\trading.jpg" />
+    <Content Include="Content\assets\profile_contacts\fb.png" />
+    <Content Include="Content\assets\profile_contacts\fb.svg" />
+    <Content Include="Content\assets\profile_contacts\google_map.png" />
+    <Content Include="Content\assets\profile_contacts\twitter.png" />
+    <Content Include="Content\assets\profile_contacts\website.png" />
+    <Content Include="Content\assets\trading_index_bg\bg.jpg" />
+    <Content Include="Content\assets\trading_index_bg\bg.png" />
+    <Content Include="Content\assets\trading_index_bg\hp_banner.jpg" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\profile\2\index.html" />
+    <Content Include="Content\profile\2\index6e4f.html" />
+    <Content Include="Content\profile\2\index8d4b.html" />
+    <Content Include="Content\profile\2\index9a50.html" />
+    <Content Include="Content\profile\2\indexaa25.html" />
+    <Content Include="Content\profile\2\indexc575.html" />
+    <Content Include="Content\profile\3\index.html" />
+    <Content Include="Content\profile\3\index5cb6.html" />
+    <Content Include="Content\profile\3\index7e9a.html" />
+    <Content Include="Content\profile\3\index8d4b.html" />
+    <Content Include="Content\profile\3\index9a50.html" />
+    <Content Include="Content\profile\3\indexaa25.html" />
+    <Content Include="Content\profile\3\indexc575.html" />
+    <Content Include="Content\profile\4\index.html" />
+    <Content Include="Content\profile\4\index038d.html" />
+    <Content Include="Content\profile\4\index5cb6.html" />
+    <Content Include="Content\profile\4\index6e4f.html" />
+    <Content Include="Content\profile\4\index7e9a.html" />
+    <Content Include="Content\profile\4\index8d4b.html" />
+    <Content Include="Content\profile\4\indexaa25.html" />
+    <Content Include="Content\profile\4\indexc575.html" />
+    <Content Include="Content\profile\5\index.html" />
+    <Content Include="Content\profile\5\index038d.html" />
+    <Content Include="Content\profile\5\index6e4f.html" />
+    <Content Include="Content\profile\5\index8d4b.html" />
+    <Content Include="Content\profile\5\index9a50.html" />
+    <Content Include="Content\profile\5\indexaa25.html" />
+    <Content Include="Content\profile\5\indexc575.html" />
+    <Content Include="Content\profile\6\index.html" />
+    <Content Include="Content\profile\6\index5cb6.html" />
+    <Content Include="Content\profile\6\index8d4b.html" />
+    <Content Include="Content\profile\6\index9a50.html" />
+    <Content Include="Content\profile\6\indexaa25.html" />
+    <Content Include="Content\profile\6\indexc575.html" />
+    <Content Include="Content\profile\7\index.html" />
+    <Content Include="Content\profile\7\index038d.html" />
+    <Content Include="Content\profile\7\index5cb6.html" />
+    <Content Include="Content\profile\7\indexaa25.html" />
+    <Content Include="Content\profile\7\indexc575.html" />
+    <Content Include="Content\profile\index.html" />
+    <Content Include="Content\profile\index0d13.html" />
+    <Content Include="Content\profile\index1040.html" />
+    <Content Include="Content\profile\index150c.html" />
+    <Content Include="Content\profile\index422a.html" />
+    <Content Include="Content\profile\index4c42.html" />
+    <Content Include="Content\profile\index6e4f.html" />
+    <Content Include="Content\profile\index7a1d.html" />
+    <Content Include="Content\profile\index7e9a.html" />
+    <Content Include="Content\profile\index8d4b.html" />
+    <Content Include="Content\profile\index9665.html" />
+    <Content Include="Content\profile\indexaa25.html" />
+    <Content Include="Content\profile\indexd3e3.html" />
+    <Content Include="Content\profile\indexdd87.html" />
+    <Content Include="Content\profile\indexe2c4.html" />
+    <Content Include="Content\profile\page\1\index422a.html" />
+    <Content Include="Content\profile\page\2\index422a.html" />
+    <Content Include="Content\profile\profile.html" />
+    <Content Include="Content\wp-admin\admin-ajax.html" />
+    <Content Include="Content\wp-content\plugins\contact-form-7\images\ajax-loader.gif" />
+    <Content Include="Content\wp-content\plugins\contact-form-7\includes\css\styles-rtl.css" />
+    <Content Include="Content\wp-content\plugins\contact-form-7\includes\css\styles.css" />
+    <Content Include="Content\wp-content\plugins\contact-form-7\includes\js\scripts.js" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\css\js_composer.min.css" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v157a1.svg" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\fonts\vc_icons_v2\fonts\vcpb-plugin-iconsb82a.svg" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\flickr.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\address-book.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\alarm-clock.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\anchor.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\application-image.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\arrow.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\asterisk.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\auction-hammer.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\balloon-buzz.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\balloon-facebook.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\balloon-twitter.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\balloon.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\battery-full.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\binocular.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\blue-document-excel.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\blue-document-image.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\blue-document-music.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\blue-document-office.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\blue-document-pdf.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\blue-document-powerpoint.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\blue-document-word.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\bookmark.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\camcorder.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\camera.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\chart-pie.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\chart.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\clock.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\control.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\fire.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\heart.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\mail.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\plus-shield.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\icons\video.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\spinner.gif" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\toggle_close.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\images\toggle_open.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\js\dist\js_composer_front.min.js" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\js\vendors\woocommerce-add-to-cart.js" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\vc\alert.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\vc\blur.svg" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\vc\exclamation.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\vc\info.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\vc\remove.png" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\vc\tick.png" />
+    <Content Include="Content\wp-content\plugins\post-views-counter\css\frontend.css" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\css\woocommerce-layout-rtl.css" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\css\woocommerce-rtl.css" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\css\woocommerce-smallscreen-rtl.css" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\fonts\star.svg" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\fonts\WooCommerce.svg" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\images\icons\credit-cards\amex.svg" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\images\icons\credit-cards\diners.svg" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\images\icons\credit-cards\discover.svg" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\images\icons\credit-cards\jcb.svg" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\images\icons\credit-cards\laser.svg" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\images\icons\credit-cards\maestro.svg" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\images\icons\credit-cards\mastercard.svg" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\images\icons\credit-cards\visa.svg" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\images\icons\loader.svg" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\images\placeholder.png" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\js\accounting\accounting.min.js" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\js\frontend\add-to-cart.min.js" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\js\frontend\cart-fragments.min.js" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\js\frontend\price-slider.min.js" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\js\frontend\single-product.min.js" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\js\frontend\woocommerce.min.js" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\js\jquery-blockui\jquery.blockUI.min.js" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\js\jquery-ui-touch-punch\jquery-ui-touch-punch.min.js" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\js\js-cookie\js.cookie.min.js" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\css\all-icons.css" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\css\bootstrap.min.css" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\css\dwt-listing.css" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\css\images\dwt_listing.html" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\css\images\sb-loader.html" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\css\images\small-loader.html" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\css\jquery-te.html" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\css\map\images\layers-2x.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\css\map\images\layers.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\css\map\images\marker-icon.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\css\map\leaflet-rtl.css" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\css\plugins.css" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\css\rtl\bootstrap-rtl.min.css" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\css\rtl\custom-rtl.css" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\css\rtl\dwt-listing-rtl.css" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\css\rtl\mega-menu-rtl.css" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\css\rtl\responsive-rtl.css" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\css\rtl\woocommerce-rtl.css" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\css\video_player.css" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\dwt_icons\dwt_listing_icons.html" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\flexslider-icon.svg" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\fontawesome-webfont3e6e.html" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\fontelloba04-2.html" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\fontelloba04-3.html" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\fontelloba04-4.html" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\fontelloba04.html" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\glyphicons-halflings-regular.html" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\themify.svg" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\blue_border.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\businesscards.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\call-to-action.jpg" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\city.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\close.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\collage.jpg" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\dwt-food.jpg" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\dwt_listing_loader.gif" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\eds\720x90-2.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\event-polygon.jpg" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\flat%402x.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\flat.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\footer.jpg" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\funfacts_new.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\giphy.gif" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\gjmnv.html" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\icons\login.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\icons\phone.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\jquery-te.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\layer.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\lines.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\l_arrow.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\main-image.html" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\minus.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\montreal.jpg" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\montreal2.jpg" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\music.html" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\new-heros.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\newOverlay.jpg" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\newOverlay.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\no-image.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\overlay.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\overlaybg.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\overlay_2.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\owl.video.play.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\play-button.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\plus.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\preview.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\rating-loading.gif" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\r_arrow.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\shape-bg.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\style.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\submit-post-pricing.jpg" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\world-map.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\world_map.jpg" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\world_map.png" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\js\bootstrap.min.js" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\js\custom.js" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\js\dropzone.js" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\js\jquery-confirm.js" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\js\listing-search\search_map.js" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\js\listing.js" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\js\map\leaflet-search.min.js" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\js\map\leaflet.js" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\js\map\leaflet.markercluster.js" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\js\map\leafloader.js" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\js\plugins.js" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\js\profile.js" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\js\registration.js" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\js\submit-listing\date-en-US.js" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\js\submit-listing\jquery.ui.timeselect.js" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\js\theia-sticky-sidebar.js" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\js\typeahead.adv.js" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\js\validator.min.js" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\js\video_player.js" />
+    <Content Include="Content\wp-content\themes\dwt-listing\index.html" />
+    <Content Include="Content\wp-content\themes\dwt-listing\style.css" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\01_image-1-265x280.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\01_image-1-300x300.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\02-265x280.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\02-300x300.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\03-265x280.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\03-300x300.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\04-265x280.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\04-300x300.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\06-265x280.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\06-300x300.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\07-265x280.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\07-300x300.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\08-265x280.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\08-300x300.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\09-265x280.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\09-300x300.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\09.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\11-265x280.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\11-300x300.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\12-265x280.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\12-300x300.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\14-265x280.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\14-300x300.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\15-265x280.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\15-300x300.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\edvkd-265x280.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\edvkd-300x300.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\eklvk-265x280.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\eklvk-300x300.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\scsc-265x280.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\scsc.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\scscc-265x280.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\scscc-300x300.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\svd-265x280.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2017\12\svd-300x300.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\3s-236x220.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\3s-282x264.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\3s-395x275.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\3s-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\3s.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\5.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\6-100x100.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\6s-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\6s.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\7s-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\7s.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\8s-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\8s.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\b1.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\b2.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\b3.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\c6a4645d9f9af45a9c9d7b094c18a47a-portrait-ideas-girl-photos-100x100.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\cool-dp-pics-2-300x200-100x100.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\ff86f179a1db920ceb190046e10fb99f-100x100.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\name-100x100.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\name2-100x100.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\pexels-photo-271634-360x238.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\pexels-photo-285172-360x238.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\pexels-photo-376464-360x238.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\pexels-photo-533658-360x238.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\pexels-photo-724216-236x220.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\pexels-photo-724216-282x264.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\pexels-photo-724216-395x275.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\pexels-photo-724216-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\pexels-photo-724216.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\pexels-photo-774487-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\pexels-photo-774487.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\pexels-photo-845811-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\pexels-photo-845811.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\photo-100x100.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\pricing1.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\pricing2.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\pricing3.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\santorini-oia-greece-travel-163864-100x66.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\santorini-oia-greece-travel-163864-360x238.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\Untitled-8.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\Untitled-8.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\user_no_image.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\vegetables-italian-pizza-restaurant-1-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\vegetables-italian-pizza-restaurant-1.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\vegetables-italian-pizza-restaurant-100x66.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\02\vegetables-italian-pizza-restaurant-360x238.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\2982-236x220.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\2982-282x264.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\2982-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\2982.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\art-236x220.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\art-282x264.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\art-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\art-house-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\art-house.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\art.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\auto-parts-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\auto-parts.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\bags-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\bags.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\beaches-100x66.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\beaches-360x238.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\beauty-girl-236x220.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\beauty-girl-282x264.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\beauty-girl-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\beauty-girl.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\brush-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\brush.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\car-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\car-tire2-236x220.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\car-tire2-282x264.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\car-tire2-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\car-tire2.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\car.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\depression-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\depression.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\equipment-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\equipment.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\fashion-accessories-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\fashion-accessories.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\fitness-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\fitness-center-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\fitness-center.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\fitness.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\hairstyle-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\hairstyle.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\headache-65x43.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\headache.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\hotel-236x220.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\hotel-282x264.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\hotel-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\hotel.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\hotel2-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\hotel2.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\hotel3-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\hotel3.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\hotel4-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\hotel4.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\hotels-100x66.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\hotels-360x238.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\mall-236x220.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\mall-282x264.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\mall-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\mall.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\man-clothes-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\man-clothes.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\man-shoping-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\man-shoping.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\message-236x220.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\message-282x264.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\message-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\message.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\muscle-pain-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\muscle-pain.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\museum-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\museum.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\nail-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\nail.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\painting-girl-2-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\painting-girl-2.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pasta-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pasta.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pastry-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pastry.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pedicure-massage-therapist-spa-161737-236x220.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pedicure-massage-therapist-spa-161737-282x264.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pedicure-massage-therapist-spa-161737-395x275.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pedicure-massage-therapist-spa-161737-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pedicure-massage-therapist-spa-161737.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-101808-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-101808.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-106399-1-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-106399-1.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-164938-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-164938.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-206299-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-206299.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-210019-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-210019.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-313691-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-313691.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-356053-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-356053.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-361754-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-361754.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-361755-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-361755.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-367915-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-367915.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-395537-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-395537.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-396303-236x220.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-396303-282x264.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-396303-395x275.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-396303-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-396303.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-413727-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-413727.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-810357-236x220.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-810357-282x264.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-810357-395x275.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-810357-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-810357.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-97075-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pexels-photo-97075.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\piza-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\piza.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pizza-2.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pizza-65x43-2.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pizza-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\pizza.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\restaurant-236x220.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\restaurant-282x264.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\restaurant-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\restaurant.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\shoes-store-236x220.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\shoes-store-282x264.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\shoes-store-395x275.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\shoes-store-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\shoes-store.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\shopping-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\shopping-lovers-100x66.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\shopping-lovers-360x238.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\shopping-lovers-750x400.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\shopping.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\shutterstock_230023786_1080-236x220.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\shutterstock_230023786_1080-282x264.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\shutterstock_230023786_1080-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\shutterstock_230023786_1080.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\sony-lens-walimex-camera-159442-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\sony-lens-walimex-camera-159442.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\vehicle-chrome-technology-automobile-65623-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\vehicle-chrome-technology-automobile-65623.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\yoga-236x220.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\yoga-282x264.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\yoga-65x43.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\03\yoga.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\05\ABAL.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\05\add.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\05\AHIR.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\05\australia-360x238.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\05\b-100x100.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\05\d-100x100.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\05\e-100x100.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\05\e1-100x100.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\05\france-360x238.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\05\g-100x100.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\05\HAKOUM.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\05\handshake.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\05\happy.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\05\italy-360x238.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\05\layers.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\05\london-360x238.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\05\miami-360x238.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\05\p-100x100.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\05\people-eiffel-tower-lights-night-1.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\05\s-100x100.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\05\t-100x100-2.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\05\t-100x100.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\06\logo-white.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\06\logo-whites.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\06\logo.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\06\logos.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\06\mag-236x220.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\09\accountants.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\09\bea-360x238.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\09\ca-360x238.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\09\cardiogram.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\09\coffee.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\09\doctors.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\09\drop.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\09\hands-people-woman-smartphone-360x238.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\09\health-360x238.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\09\law.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\09\pizza-360x238.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\09\sellers.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\09\travel-360x238.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\bc.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\businessIndex.jpg" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\businessIndex.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\businessIndex2.png" />
+    <Content Include="Content\wp-content\uploads\sites\5\2018\newOverlay.jpg" />
+    <Content Include="Content\wp-includes\css\dashicons.min.css" />
+    <Content Include="Content\wp-includes\js\comment-reply.min.js" />
+    <Content Include="Content\wp-includes\js\imagesloaded.min.js" />
+    <Content Include="Content\wp-includes\js\jquery\jquery-migrate.min.js" />
+    <Content Include="Content\wp-includes\js\jquery\jquery.js" />
+    <Content Include="Content\wp-includes\js\jquery\ui\autocomplete.min.js" />
+    <Content Include="Content\wp-includes\js\jquery\ui\core.min.js" />
+    <Content Include="Content\wp-includes\js\jquery\ui\menu.min.js" />
+    <Content Include="Content\wp-includes\js\jquery\ui\mouse.min.js" />
+    <Content Include="Content\wp-includes\js\jquery\ui\position.min.js" />
+    <Content Include="Content\wp-includes\js\jquery\ui\slider.min.js" />
+    <Content Include="Content\wp-includes\js\jquery\ui\sortable.min.js" />
+    <Content Include="Content\wp-includes\js\jquery\ui\widget.min.js" />
+    <Content Include="Content\wp-includes\js\wp-a11y.min.js" />
+    <Content Include="Content\wp-includes\js\wp-embed.min.js" />
+    <Content Include="Content\wp-includes\wlwmanifest.xml" />
+    <Content Include="Content\wp-json\index.html" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\wp-content\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v157a1.eot" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v157a1.ttf" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v157a1.woff" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v1d41d.eot" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\fonts\vc_icons_v2\fonts\vcpb-plugin-iconsb82a.eot" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\fonts\vc_icons_v2\fonts\vcpb-plugin-iconsb82a.ttf" />
+    <Content Include="Content\wp-content\plugins\js_composer\assets\fonts\vc_icons_v2\fonts\vcpb-plugin-iconsb82a.woff" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\fonts\star.eot" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\fonts\star.ttf" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\fonts\star.woff" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\fonts\stard41d.eot" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\fonts\WooCommerce.eot" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\fonts\WooCommerce.ttf" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\fonts\WooCommerce.woff" />
+    <Content Include="Content\wp-content\plugins\woocommerce\assets\fonts\WooCommerced41d.eot" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\dwt_icons\dwt_listing_icons.eot" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\dwt_icons\dwt_listing_icons.ttf" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\dwt_icons\dwt_listing_iconsd41d.eot" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\flexslider-icon.eot" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\flexslider-icon.ttf" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\flexslider-icon.woff" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\flexslider-icond41d.eot" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\themify.eot" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\themify.ttf" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\themify.woff" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\fonts\themifyd41d.eot" />
+    <Content Include="Content\wp-content\themes\dwt-listing\assets\images\new-hero" />
+    <Content Include="Content\wp-content\themes\dwt-listing\debug.log" />
+    <Content Include="Content\wp-includes\fonts\dashicons.eot" />
+    <Content Include="Content\wp-json\oembed\1.0\embed2437.json" />
+    <Content Include="Content\wp-json\oembed\1.0\embed3080.json" />
+    <Content Include="Content\wp-json\oembed\1.0\embed3889.json" />
+    <Content Include="Content\wp-json\oembed\1.0\embed4615" />
+    <Content Include="Content\wp-json\oembed\1.0\embed4a76" />
+    <Content Include="Content\wp-json\oembed\1.0\embed6bec" />
+    <Content Include="Content\wp-json\oembed\1.0\embed6d61" />
+    <Content Include="Content\wp-json\oembed\1.0\embed888e" />
+    <Content Include="Content\wp-json\oembed\1.0\embed912a" />
+    <Content Include="Content\wp-json\oembed\1.0\embed983e" />
+    <Content Include="Content\wp-json\oembed\1.0\embed9be7.json" />
+    <Content Include="Content\wp-json\oembed\1.0\embedaf4e.json" />
+    <Content Include="Content\wp-json\oembed\1.0\embedb6ca.json" />
+    <Content Include="Content\wp-json\oembed\1.0\embedc20e.json" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\SearchPartialView.cshtml" />
+    <Content Include="Views\Home\AdsPartialView.cshtml" />
+    <Content Include="Views\Home\CardsPartialView.cshtml" />
+    <Content Include="Views\Home\AdvancedSearchPartialView.cshtml" />
+    <Content Include="Views\Home\CarrersPartialView.cshtml" />
+    <Content Include="Views\Accounts\AccountProfile.cshtml" />
+    <Content Include="Views\Search\Results.cshtml" />
+    <Content Include="Views\Accounts\Create.cshtml" />
+    <Content Include="Views\Company\Create.cshtml" />
+    <Content Include="Views\Professions\Profession.cshtml" />
+    <Content Include="Views\Ads\AdsAdmin.cshtml" />
+    <Content Include="Views\Accounts\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+    <Folder Include="Uploads\Ads\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Service\Service.csproj">
+      <Project>{5398A465-5D19-4E44-A737-B43E2217C4B6}</Project>
+      <Name>Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49952</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/Arab_Monteral</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

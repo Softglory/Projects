@@ -1,0 +1,349 @@
+﻿img.wp-smiley,
+img.emoji {
+    display: inline !important;
+    border: none !important;
+    box-shadow: none !important;
+    height: 1em !important;
+    width: 1em !important;
+    margin: 0 .07em !important;
+    vertical-align: -0.1em !important;
+    background: none !important;
+    padding: 0 !important;
+}
+
+.woocommerce form .form-row .required {
+    visibility: visible;
+}
+
+.transparent-breadcrumb-listing {
+    background: url(wp-content/themes/dwt-listing/assets/images/collage.jpg) !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-attachment: fixed !important;
+}
+
+.navBarWithNoAd {
+   background:  rgba(0,0,0,.7);
+    padding: 84px 0;
+}
+
+body {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 26px;
+    color: #444;
+}
+
+
+.mega-menu .menu-links > li > a, .mega-menu.transparent .menu-links > li > a {
+    font-weight: 400;
+    line-height: 50px;
+    color: #ffffff;
+}
+
+.mega-menu .drop-down-multilevel a, .menu-button li.profile-dropdown ul.dropdown-menu li a {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.h2, h2, .heading-2 h2 {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 35px;
+    color: #444;
+}
+
+.how-it-work-section .hiw-main-box .hiw-single-box .hiw-heading h2 {
+    color: #444;
+}
+
+.home-main-2 .main-section-area h2 {
+}
+
+.h3, h3, .heading-2 h3 {
+    font-size: 20px;
+    font-weight: 400;
+    color: #444;
+}
+
+.heading-2 h3 {
+    line-height: 20px;
+}
+
+.h4, h4 {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 18px;
+    color: #444;
+}
+
+p, .short-detail .list-detail p, .blog-section-2 .blog-inner-box .blog-lower-box .text, .dwt_listing_single-detial .entry-content p {
+    font-family: Open Sans;
+    font-size: 16px;
+    font-weight:;
+    line-height: 30px;
+    color: #999;
+}
+
+.single-detail-page .list-detail #d-desc ul li, .single-detail-page .list-detail #d-desc ol li {
+    color: #999;
+}
+
+.card-agent-6 .author-loc {
+    font-family: Open Sans;
+    font-size: 16px;
+    font-weight:;
+    color: #999;
+}
+
+.single-post .review-box .review-author-right .review-author-detail p {
+    line-height: 30px;
+}
+
+.h5, h5 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #444;
+}
+
+.h6, h6 {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    color: #444;
+}
+
+.btn-theme, .mega-menu.header2 .menu-button li.post-btn, .event-hero-intro-search button, .header-top .header-top-profile ul li.ad-listing-btn a, .with-solid-menu.menu-transparent .mega-menu.transparent .menu-button li.post-btn, .typeahead__container.hero9 button {
+    background-color: #242424;
+    border-color: #242424;
+}
+
+.new-hero-search-bar .submit {
+    background: #e52d27;
+}
+
+    .new-hero-search-bar .submit:hover {
+        background: #242424;
+    }
+
+    .new-hero-search-bar .submit:focus, .new-hero-search-bar .submit:active {
+        background: #ea5652;
+    }
+
+.header-top .header-top-profile ul li.ad-listing-btn {
+    border: 1px solid #242424;
+}
+
+.recent-tab ul.nav.nav-tabs li.active a {
+    background-color: #242424;
+}
+
+.landing-carousel .owl-theme .owl-nav [class*='owl-']:hover {
+    background: #e52d27;
+}
+
+.btn-theme:hover, .mega-menu.header2 .menu-button li.post-btn:hover, .event-hero-intro-search button:hover, .header-top .header-top-profile ul li.ad-listing-btn a:hover, .listing-widget-sidebar .input-group .input-group-btn .btn-default:hover, .location-filters .input-group .input-group-btn .btn-default:hover, .with-solid-menu.menu-transparent .mega-menu.transparent .menu-button li.post-btn:hover, .custom-form-field .input-group .input-group-btn .btn-default:hover, .typeahead__container.hero9 button:focus, .typeahead__container.hero9 button:hover, .typeahead__container.hero9 button:focus, .typeahead__container.hero9 button:hover {
+    background-color: #e52d27;
+    border-color: #e52d27;
+}
+
+.typeahead__container.hero9 button.active, .typeahead__container.hero9 button:active {
+    background-color: #e52d27;
+    border-color: #e52d27;
+}
+
+
+.header-top .header-top-profile ul li.ad-listing-btn:hover {
+    border: 1px solid #e52d27;
+}
+
+.listing-widget-sidebar .input-group .btn-default:focus, .location-filters .input-group .input-group-btn .btn-default:focus, .custom-form-field .input-group .input-group-btn .btn-default:hover {
+    background-color: #ea5652;
+    border-color: #ea5652;
+    color: #fff;
+}
+
+.btn-theme:active, .btn-theme.active, .btn-theme:focus, .mega-menu.header2 .menu-button li.post-btn:focus, .mega-menu.header2 .menu-button li.post-btn.active, .event-hero-intro-search button.active, .event-hero-intro-search button:active,, .event-hero-intro-search button:focus, .listing-widget-sidebar .input-group .input-group-btn .btn-default.active, .location-filters .input-group .input-group-btn .btn-default.active, .with-solid-menu.menu-transparent .mega-menu.transparent .menu-button li.post-btn.active, .with-solid-menu.menu-transparent .mega-menu.transparent .menu-button li.post-btn:focus, .custom-form-field .input-group .input-group-btn .btn-default:hover {
+    background-color: #ea5652;
+    border-color: #ea5652;
+}
+
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+    background-color: #e52d27;
+    border-color: #e52d27;
+}
+
+.pagination li > a:hover {
+    background-color: #e52d27;
+    border: 1px solid #e52d27;
+}
+
+.listing-details h4 a:hover, .ad-archive-desc h3:hover, .ad-archive-desc h3 a:hover, .ad-archive-desc .ad-meta .read-more:hover, .dwt_listing_shop-grid-description h2:hover, .mega-menu .drop-down-multilevel li:hover > a, .single-post .short-detail .list-category ul li a, .single-post .list-meta .list-meta-with-icons a, .sidebar .profile-widget .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover, .modern-version-block-info .post-author a:hover, .blog-sidebar .widget ul li a:hover, .dark-footer .list li a:hover, .dark-footer .list li i, .search-catz i, .tags i {
+    color: #e52d27;
+}
+
+.sidebar .profile-widget .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+    border-bottom: 2px solid #e52d27;
+}
+
+.hero-list-event .search-container .tab .nav-tabs li.active a::after {
+    border-top: 7px solid #e52d27;
+}
+
+.hero-list-event .search-container .tab .tab-content {
+    border-bottom: 3px solid #e52d27;
+}
+
+.dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover, .select2-container .select2-dropdown .select2-results__option--highlighted, .hero-list-event .search-container .tab .nav-tabs li.active a, #papular-listing .papular-listing-2-slider.owl-carousel .owl-nav button.owl-next, #papular-listing .papular-listing-2-slider.owl-carousel .owl-nav button.owl-prev, #papular-listing .papular-listing-2-slider.owl-carousel button.owl-dot, .cities-grid-area-2 hr, .single-event-detials .owl-theme .owl-dots .owl-dot.active span, .single-event-detials .owl-theme .owl-dots .owl-dot:hover span, .input-group-addon button, .search-form .input-group-addon, .blog-sidebar .widget .widget-heading h4::before, .dark-footer ul.social li a:hover {
+    background-color: #e52d27;
+}
+
+a:hover, a:focus, .ad-archive-desc .category-title a, .testimonial-style-2 .testimonial .post, .blog-section-2 .blog-inner-box .blog-lower-box h3 a:hover, .ft-right ul li a:hover, .event-list-cat.red span, .card-agent-6 .card-title a:hover, .card-agent-6 .author-loc span {
+    color: #e52d27;
+}
+
+.scrollup, .related-produt-slider.owl-carousel .owl-nav button.owl-next, .related-produt-slider.owl-carousel .owl-nav button.owl-prev, .related-produt-slider.owl-carousel button.owl-dot, .event-list-cat.red::after, .dropdown-menu > .active > a, .dropdown-menu > .active > a:focus, .dropdown-menu > .active > a:hover, .filters-option-bar .heading-icon {
+    background-color: #e52d27;
+}
+
+.highlights h4::before {
+    background-color: #e52d27;
+}
+
+
+#youclass {
+    margin: 0 auto;
+}
+
+.header-top, .header-type-2 {
+    background-color: #2f3b59;
+}
+
+.transparent-breadcrumb-listing::after {
+    background: rgba(0,0,0,0.8);
+}
+
+
+/*Search page css*/
+.card-200 {
+    width: 200px;
+    height: 140px;
+    margin: 15px 0px 15px 15px;
+}
+.mt-30 {
+    margin: 30px 0px 5px 0px;
+}
+.mt-15{
+    margin-top: 15px;
+}
+.mt-15{
+    margin-top: 15px;
+}
+.mb-30{
+    margin-bottom: 30px;
+}
+
+.padding-right-50{
+    padding-right: 50%;
+}
+
+/*Paging style*/
+.ul.pagination    
+{    
+    display: inline-block;    
+    padding: 0;    
+    margin: 0;    
+}    
+    
+ul.pagination li    
+{    
+    display: inline;    
+}    
+    
+ul.pagination li a    
+{    
+    color: black;    
+    float: left;    
+    padding: 8px 16px;    
+    text-decoration: none;    
+    transition: background-color .3s;    
+}    
+    
+ul.pagination li a.active    
+{    
+    background-color: #4CAF50;    
+    color: white;    
+}    
+    
+ul.pagination li a:hover:not(.active)    
+{    
+    background-color: #ddd;    
+}  
+/*end of paging style*/
+
+.required:after {
+    content: "*";
+    color: #b4675e;
+}
+
+
+/*social media*/
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+
+#social {
+    margin: 20px 10px;
+    text-align: center;
+}
+
+.smGlobalBtn { /* global button class */
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 2px 2px #999;
+    padding: 0px;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    font-size: 25px;
+    font-weight: normal;
+    line-height: 2em;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    margin-left: 10px;
+}
+
+
+/* facebook button class*/
+.facebookBtn {
+    background: #4060A5;
+}
+
+    .facebookBtn:before { /* use :before to add the relevant icons */
+        font-family: "FontAwesome";
+        content: "\f09a"; /* add facebook icon */
+    }
+
+    .facebookBtn:hover {
+        color: #4060A5;
+        background: #fff;
+    }
+
+/* twitter button class*/
+.twitterBtn {
+    background: #00ABE3;
+}
+
+    .twitterBtn:before {
+        font-family: "FontAwesome";
+        content: "\f099"; /* add twitter icon */
+    }
+
+    .twitterBtn:hover {
+        color: #00ABE3;
+        background: #fff;
+    }
