@@ -4,12 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>موسوعة الدليل التجارى &#8211; الموقع الرسمى لعرب مونتريال</title>
-    @*@HttpRuntime.AppDomainAppPath*@
 
     <link rel="icon" href="~/favicon.ico" type="image/x-icon">
-
-    @*@Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")*@
 
     <link href="~/Content/css/style.css" rel="stylesheet" />
     @*<script type='text/javascript' src="~/Content/assets/js/slider.js"></script>*@
@@ -110,39 +106,51 @@
 
 </head>
 <body class="nopadding rtl home page-template page-template-page-home page-template-page-home-php page page-id-3321 woocommerce-no-js wpb-js-composer js-comp-ver-5.5 vc_responsive">
-<section class="menu-transparent">
-    <nav id="menu-1" class="mega-menu transparent">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="menu-list-items">
-                        <ul class="menu-logo">
-                            <li>
-                                <a href="index.html">
-                                    <img src="~/Content/wp-content/uploads/sites/5/2018/06/logo-white.png" style="width:100px; height:auto" alt="صورة اللوغو" class="img-responsive">
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="menu-button ">
-                            <li class="post-btn">
-                                <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i>إشترك معنا</a>
-                            </li>
-                        </ul>
-                        <ul class="menu-links" style="padding-top:45px">
-                            <li>
-                                <a href="index.html">الصفحة الرئيسية <i class="fa-indicator"></i></a>
-                            </li>
-                            <li><a href="#">بحث <i class="fa fa-angle-down fa-indicator"></i></a><ul class="drop-down-multilevel grid-col-12"><li class="hoverTrigger"><a href="">التسوق </a><li class="hoverTrigger"><a href="">السيارات </a><li class="hoverTrigger"><a href="">الصحة </a><li class="hoverTrigger"><a href="">العقارات </a><li class="hoverTrigger"><a href="">الفنادق </a><li class="hoverTrigger"><a href="">خدمات </a><li class="hoverTrigger"><a href="">فنون </a><li class="hoverTrigger"><a href="">مطعم </a></ul></li>
-                            <li>
-                            <a href="#">من نحن <i class="fa-indicator"></i></a>
-                            <li><a href="#">إتصل بنا <i class="fa-indicator"></i></a></li>
-                        </ul>
+    <section class="menu-transparent">
+        <nav id="menu-1" class="mega-menu transparent">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="menu-list-items">
+                            <ul class="menu-logo">
+                                <li>
+                                    <a href="index.html">
+                                        <img src="~/Content/wp-content/uploads/sites/5/2018/06/logo-white.png" style="width:100px; height:auto" alt="صورة اللوغو" class="img-responsive">
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="menu-links" style="padding-top:45px">
+                                <li>
+                                    <a href="index.html">الصفحة الرئيسية <i class="fa-indicator"></i></a>
+                                </li>
+                                <li>
+                                    @Html.ActionLink(" حسابات المستخدمين", "Index", "Accounts")
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        بحث <i class="fa fa-angle-down fa-indicator"></i>
+                                    </a>
+                                    <ul class="drop-down-multilevel grid-col-12">
+                                        <li class="hoverTrigger"><a href="">التسوق </a>
+                                        <li class="hoverTrigger"><a href="">السيارات </a>
+                                        <li class="hoverTrigger"><a href="">الصحة </a>
+                                        <li class="hoverTrigger"><a href="">العقارات </a>
+                                        <li class="hoverTrigger"><a href="">الفنادق </a>
+                                        <li class="hoverTrigger"><a href="">خدمات </a>
+                                        <li class="hoverTrigger"><a href="">فنون </a>
+                                        <li class="hoverTrigger">
+                                            <a href="">
+                                                مطعم
+                                            </a>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </nav>
-</section>
+        </nav>
+    </section>
 
 
     <div class="nopadding">
@@ -210,7 +218,7 @@
         <i class="fa fa-chevron-up"></i>
     </a>
 
-   <script type="text/javascript">
+    <script type="text/javascript">
         var c = document.body.className;
         c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
         document.body.className = c;
@@ -262,7 +270,7 @@
 
 
     @*@Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")*@
+        @Scripts.Render("~/bundles/bootstrap")*@
     @RenderSection("scripts", required: false)
 </body>
 </html>

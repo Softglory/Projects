@@ -199,6 +199,7 @@
     <Content Include="Content\assets\cards\ABAL.jpg" />
     <Content Include="Content\assets\civil_engineer.jfif" />
     <Content Include="Content\assets\images\hp_banner.jpg" />
+    <Content Include="Content\assets\images\montrealBackgroung.jpg" />
     <Content Include="Content\assets\images\world-map.png" />
     <Content Include="Content\assets\images\world_map.jpg" />
     <Content Include="Content\assets\images\world_map.png" />
@@ -238,6 +239,7 @@
     <Content Include="Content\assets\profile_contacts\fb.png" />
     <Content Include="Content\assets\profile_contacts\fb.svg" />
     <Content Include="Content\assets\profile_contacts\google_map.png" />
+    <Content Include="Content\assets\profile_contacts\readmore.PNG" />
     <Content Include="Content\assets\profile_contacts\twitter.png" />
     <Content Include="Content\assets\profile_contacts\website.png" />
     <Content Include="Content\assets\trading_index_bg\bg.jpg" />
@@ -873,6 +875,8 @@
     <Content Include="Views\Professions\Profession.cshtml" />
     <Content Include="Views\Ads\AdsAdmin.cshtml" />
     <Content Include="Views\Accounts\Details.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Accounts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

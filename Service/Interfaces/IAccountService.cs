@@ -8,7 +8,7 @@ namespace Service
 {
     public interface IAccountService
     {
-        List<Account> GetAccounts();
+        List<AccountViewModel> GetAccounts();
         Account GetAccountByID(int ID);
         void CreateAccount(Account Account);
         void EditAccount(Account Account);

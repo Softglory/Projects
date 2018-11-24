@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <section class="navBarWithNoAd"></section>
@@ -65,10 +65,10 @@
                     @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
                     
-                    @if(Model != null)
+                    @*@if(Model != null)
                     {
                         <a style="color: #b90202e0" href="http://maps.google.com/?q=@Model.Location" target="_blank" rel="noopener noreferrer"> Location on map</a>
-                    }
+                    }*@
                    
                 </div>
             </div>
@@ -134,25 +134,6 @@
                 </div>
             </div>
         </div>
-    }
-
-
-    @*<iframe id="map"
-                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d853.1858891043844!2d29.918236344016297!3d31.20012306498776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1542884722379"
-                width="600" height="450" frameborder="0" style="border:0" allowfullscreen>
-
-        </iframe>*@
-    @if (Model == null)
-    {
-        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d5638176.819160078!2d-100.15124866088784!3d55.43832097290612!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1542898740328" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-    }
-    else
-    {
-        @*<iframe id="map"
-            src="https://goo.gl/maps/sRYSn1uyxWP2"
-            width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>*@
-
-        @*<a href="http://maps.google.com/?q=1200 Pennsylvania Ave SE, Washington, District of Columbia, 20003"> Location</a>*@
     }
 
 

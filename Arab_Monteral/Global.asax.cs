@@ -25,6 +25,3 @@ namespace Arab_Monteral
         }
     }
 }
-//sanyh :D 
-//OOKay  
-//l2a 7test3'l ana fe 7gh wa23a meny :D

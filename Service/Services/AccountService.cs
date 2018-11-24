@@ -26,10 +26,32 @@ namespace Service
             this.unitOfWork = unitOfWork;
         }
 
-        public List<Account> GetAccounts()
+        public List<AccountViewModel> GetAccounts()
         {
             List<Account> Accounts = AccountRepository.GetAll().ToList();
-            return Accounts;
+            List<AccountViewModel> AccountsView = new List<AccountViewModel>();
+            foreach (Model.Account Acc in Accounts)
+            {
+                AccountViewModel AccView = new AccountViewModel()
+                {
+                    AccountId = Acc.AccountId,
+                    FirstName = Acc.FirstName,
+                    LastName = Acc.LastName,
+                    CardImage = Acc.CardImage,
+                    ProfessionTitle = Acc.ProfessionTitle,
+                    Phone = Acc.Phone,
+                    CompanyId = Acc.CompanyId,
+                    Location = Acc.Location,
+                    Status = Acc.Status,
+                    CreatedOn = Acc.CreatedOn,
+                    ModifiedOn = Acc.ModifiedOn,
+                    Company = Acc.Company,
+                    NoOfSearches = CountNoOfSearches(Acc.AccountId)
+                };
+                AccountsView.Add(AccView);
+            }
+
+            return AccountsView;
         }
 
         public Account GetAccountByID(int ID)

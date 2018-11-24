@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using Model.ViewModels;
 using System.IO;
 using Model;
+using PagedList;
 
 namespace Arab_Monteral.Controllers
 {
@@ -22,9 +23,12 @@ namespace Arab_Monteral.Controllers
         }
 
         // GET: Accounts
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            return View();
+            List<AccountViewModel> Accounts = AccountService.GetAccounts();
+            SearchViewModel EmptySearch = new SearchViewModel();
+            IPagedList<AccountViewModel> PagedAccounts = AccountService.FilterAccounts(EmptySearch, page ?? 1);
+            return View(PagedAccounts);
         }
 
         public ActionResult AccountProfile(int ID)

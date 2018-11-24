@@ -1,0 +1,81 @@
+﻿@using PagedList.Mvc
+@model  PagedList.IPagedList<Model.ViewModels.AccountViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<section class="navBarWithNoAd"></section>
+<div class="container">
+    <div class="row">
+        <section class="content">
+            <h2>حسابات المستخدمين</h2>
+            <p>
+                @Html.ActionLink("Create New", "Create", new { }, new { @class = "btn btn-success" })
+            </p>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayName("الإسم")
+                    </th>
+                    <th>
+                        @Html.DisplayName("صورة البطاقة")
+                    </th>
+                    <th>
+                        @Html.DisplayName("المهنه")
+                    </th>
+                    <th>
+                        @Html.DisplayName("الحساب موجود")
+                    </th>
+
+                    <th></th>
+                </tr>
+                </thead>
+
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            <img for="files" src="@item.CardImage" onerror="this.src = 'Uploads/Default.jpg'" style="width:250px; height:90px" class="card-200">
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProfessionTitle)
+                        </td>
+                        <td>
+                            @Html.CheckBoxFor(modelItem => item.Status)
+                        </td>
+
+                        <td>
+                            @Html.ActionLink("تفاصيل", "Details", new { id = item.AccountId }, new { @class = "btn btn-info" }) |
+                            @Html.ActionLink("تعديل", "Create", new { id = item.AccountId }, new { @class = "btn btn-primary" })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+            <div id="container" style="margin-left: 20px">
+                <p></p>
+                <p></p>
+                <div class="pagination" style="margin-left: 400px">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
+                    صفحة @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+                    من @Model.PageCount
+                </div>
+            </div>
+
+
+        </section>
+
+    </div>
+
+</div>
