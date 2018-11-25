@@ -110,6 +110,12 @@
 
                 </div>
             </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">تحميل المزيد من المعلومات</label>
+                <div class="col-md-10">
+                    <input type="file" name="infoFile" id="files" />
+                </div>
+            </div>
 
             <div class="form-group">
                 @Html.Label("الحساب موجود", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -120,6 +126,9 @@
                     </div>
                 </div>
             </div>
+            
+
+
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     @if (Model == null)

@@ -170,5 +170,30 @@ namespace Arab_Monteral.Controllers
           return View(AccView);
        
         }
+
+        public ActionResult OldProfile(int ID)
+        {
+            Model.Account Acc = AccountService.GetAccountByID(ID);
+            AccountViewModel AccView = new AccountViewModel()
+            {
+                AccountId = Acc.AccountId,
+                FirstName = Acc.FirstName,
+                LastName = Acc.LastName,
+                CardImage = Acc.CardImage,
+                ProfessionTitle = Acc.ProfessionTitle,
+                Phone = Acc.Phone,
+                CompanyId = Acc.CompanyId,
+                Location = Acc.Location,
+                FacebookUrl = Acc.FacebookUrl,
+                TwitterUrl = Acc.TwitterUrl,
+                Website = Acc.Website,
+                Status = Acc.Status,
+                CreatedOn = Acc.CreatedOn,
+                ModifiedOn = Acc.ModifiedOn,
+                Company = Acc.Company
+            };
+            AccView.NoOfSearches = AccountService.CountNoOfSearches(ID);
+            return View(AccView);
+        }
     }
 }

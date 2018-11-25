@@ -1,0 +1,233 @@
+﻿@using Model
+@model Model.ViewModels.AccountViewModel
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="navBarWithNoAd"></section>
+
+<section class="dashboard">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-xs-12 col-sm-12">
+                <aside class="sidebar transparen-listing-sidebar">
+                    <div class="contact-box">
+                        <div class="contact-img">
+                            <img src="~/Content/assets/members/1_hala.jpg" style="width:250px; height:90px" class="img-circle img-responsive" alt="الصورة غير موجود">
+                        </div>
+                        <div class="contact-caption">
+                            <h4><a href="javascript:void(0)">هالة كامل</a></h4>
+                            <span>مونتريال</span>
+                        </div>
+                    </div>
+                    <div class="profile-widget">
+                        <div class="panel with-nav-tabs panel-default">
+                            <div class="panel-heading">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#tab1default" data-toggle="tab">عن هالة</a></li>
+                                    <li><a href="#tab2default" data-toggle="tab">تواصل مع هالة</a></li>
+                                </ul>
+                            </div>
+                            <div class="panel-body">
+                                <div class="tab-content">
+                                    <div class="tab-pane fade in active" id="tab1default">
+                                        <ul class="widget-listing-details">
+                                            <li> <span> <img alt="الصورة غير موجود" src="~/Content/wp-content/themes/dwt-listing/assets/images/icons/login.png"></span> <span> <a href="javascript:void(0)">المهنة : <strong>مهندس</strong></a></span> </li>
+                                            <li> <span><img alt="الصورة غير موجود" src="~/Content/wp-content/themes/dwt-listing/assets/images/icons/phone.png"></span> <span> <a href="tel:7185612200">7185612200</a></span> </li>
+                                            <li> <span>عدد مرات البحث عن هالة: </span> <span class="red" style="color:darkred"> 126 </span> </li>
+                                            <li>
+                                                <span><img alt="الصورة غير موجود" src="~/Content/assets/profile_contacts/fb.png" class="img-responsive" style="width:40px; height:40px; float:right"></span>
+                                                <span><img alt="الصورة غير موجود" src="~/Content/assets/profile_contacts/twitter.png" class="img-responsive" style="width:40px; height:40px; float:right"> </span>
+                                                <span><img alt="الصورة غير موجود" src="~/Content/assets/profile_contacts/website.png" class="img-responsive" style="width:40px; height:40px; float:right"> </span>
+                                                <span><img alt="الصورة غير موجود" src="~/Content/assets/profile_contacts/google_map.png" class="img-responsive" style="width:40px; height:40px; float:right"> </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="widget">
+                                        <div class="widget-heading">
+                                            <h4 class="panel-title">أقسام ذو صلة</h4>
+                                        </div>
+                                        <br />
+                                        <div class="recent-ads">
+                                            <div class="recent-ads-list">
+                                                <div class="recent-ads-container">
+                                                    <div class="recent-ads-list-image">
+                                                        <a href="#" class="recent-ads-list-image-inner">
+                                                            <img src="~/Content/assets/professions/accounting.jpg" alt="فندق فيرجينيا أجمل">
+                                                        </a>
+                                                    </div>
+                                                    <div class="recent-ads-list-content">
+                                                        <h3 class="recent-ads-list-title">
+                                                            <a href="">هندسة معمارى</a>
+                                                        </h3>
+                                                        <ul class="recent-ads-list-location">
+                                                            <li><a href="">مهندسون</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="recent-ads-list">
+                                                <div class="recent-ads-container">
+                                                    <div class="recent-ads-list-image">
+                                                        <a href="#" class="recent-ads-list-image-inner">
+                                                            <img src="~/Content/assets/professions/banking.jpg" alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="recent-ads-list-content">
+                                                        <h3 class="recent-ads-list-title">
+                                                            <a href="">هندسة بترول</a>
+                                                        </h3>
+                                                        <ul class="recent-ads-list-location">
+                                                            <li><a href="">مهندسون</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="tab2default">
+                                        <form method="post" data-disable="false" id="email-to-author">
+                                            <div class="form-group">
+                                                <input placeholder="اسمك" name="name" class="form-control" type="text" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <input placeholder="عنوان البريد الإلكتروني" name="email" class="form-control" type="email" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <input placeholder="ادخل رقم الهاتف الخاص بك لكي يتصل المشتري بك" name="phone" class="form-control" type="number" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <textarea cols="6" name="message" rows="6" placeholder="رسالتك" class="form-control" required></textarea>
+                                            </div>
+                                            <input type="hidden" name="author_id" value="18">
+                                            <button type="submit" class="btn btn-theme sonu-button" data-loading-text="<i class='fa fa-spinner fa-spin '></i> المعالجة جارية">أرسل رسالة</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <section id="related_links"></section>
+                    </div>
+                </aside>
+            </div>
+            <div class="col-md-8 col-xs-12 col-sm-12">
+                <div class="profile-detail-area">
+                    <div class="new-banner-image_dwt_full_width">
+                        <a href="" target="_blank">
+                            <img class="img-responsive" src="~/Content/wp-content/uploads/sites/5/2018/02/b3.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="dashboard-tabs" role="tabpanel">
+                        <!--<ul class="nav nav-tabs" role="tablist">
+                            <li class=" active "><a href="index448c.html?type=listings">الإعلانات</a></li>
+                            <li class=""><a href="index6c32.html?type=events">الأحداث</a></li>
+                        </ul>-->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade in active" id="my-listingz">
+                                <div class="ads-list-archive masonery_item">
+                                    <div class="foo">
+                                        <br />
+                                        <div class="col-md-8 col-sm-6 col-xs-12  nopadding">
+                                            <div class="ad-archive-img">
+                                                <a href="">
+                                                    <img class="img-responsive" src="~/Content/assets/cards/ABAL.jpg" style="border-style:solid; border-color:darkred; border-width:1px; width:90%; margin-right:15px" alt="سوبر ماركت سليب هولو...">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                            <div class="ad-archive-desc">
+                                                <h3><a href=""> تعمل فى مجال الهندسة </a></h3>
+                                                <div class="category-title">
+                                                    <span>
+                                                        <a href="javascript:void(0)"> <i class="ti-location-pin"></i>مونتريال </a>
+                                                        <!--<a href="~/Content~/Contentcategories/%d8%a7%d9%84%d8%aa%d8%b3%d9%88%d9%82/index.html"><i class="icon-shopping-venues"></i><span> التسوق </span></a>-->
+                                                    </span>
+                                                </div>
+                                                <div class="clearfix  visible-xs-block"></div>
+                                                <p class="hidden-sm">نبذة عن ما تقوم به هالة...</p>
+                                                <ul class="add_info">
+                                                    <li><a href="~/Content/assets/member_work_images/1_hala/hp-slider-01.jpg" data-fancybox="images-preview-2693"><img src="~/Content/assets/member_work_images/1_hala/hp-slider-01.jpg" style="width:80px; height:auto" alt="سوبر ماركت سليب هولو..."></a></li>
+                                                    <li><a href="~/Content/assets/member_work_images/1_hala/4w9a7856sky_v2-h_2018.jpg" data-fancybox="images-preview-2693"><img src="~/Content/assets//member_work_images/1_hala/4w9a7856sky_v2-h_2018.jpg" style="width:80px; height:auto" alt="سوبر ماركت سليب هولو..."></a></li>
+                                                    <li><a href="~/Content/assets/member_work_images/1_hala/commercial-real-estate-equity.jpg" data-fancybox="images-preview-2693"><img src="~/Content/assets/member_work_images/1_hala/commercial-real-estate-equity.jpg" style="width:80px; height:auto" alt="سوبر ماركت سليب هولو..."></a></li>
+                                                    <li><a href="~/Content/assets/member_work_images/1_hala/member_work_images.jpg" data-fancybox="images-preview-2693"><img src="~/Content/assets/member_work_images/1_hala/member_work_images.jpg" style="width:80px; height:auto" alt="سوبر ماركت سليب هولو..."></a></li>
+                                                </ul>
+                                                </br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ads-list-archive masonery_item">
+                                    <br />
+                                    <form method="post" id="search_form_ajax">
+                                        <div class="dwt-new-filterz">
+                                            <div class="col-md-6 col-xs-12 col-sm-4">
+                                                <div class="form-group dwt-for-map">
+                                                    <div class="typeahead__container">
+                                                        <div class="typeahead__field">
+                                                            <div class="typeahead__query">
+                                                                <input name="by_title" value="" autocomplete="off" type="search" class="for_search_pages form-control specific_search" placeholder="الإسم الأول">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-12 col-sm-4">
+                                                <div class="form-group dwt-for-map">
+                                                    <div class="typeahead__container">
+                                                        <div class="typeahead__field">
+                                                            <div class="typeahead__query">
+                                                                <input name="by_title" value="" autocomplete="off" type="search" class="for_search_pages form-control specific_search" placeholder="الإسم الأخير">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-12 col-sm-4">
+                                                <div class="form-group dwt-for-map">
+                                                    <div class="typeahead__container">
+                                                        <div class="typeahead__field">
+                                                            <div class="typeahead__query">
+                                                                <input name="by_title" value="" autocomplete="off" type="search" class="for_search_pages form-control specific_search" placeholder="رقم التليفون">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-12 col-sm-4">
+                                                <div class="form-group dwt-for-map">
+                                                    <div class="typeahead__container">
+                                                        <div class="typeahead__field">
+                                                            <div class="typeahead__query">
+                                                                <input name="by_title" value="" autocomplete="off" type="search" class="for_search_pages form-control specific_search" placeholder="إسم الشركة">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-12 col-sm-12">
+                                                <div class="search-widget">
+                                                    <div class="form-group specific-search">
+                                                        <input class="form-control" id="address_location" name="street_address" placeholder="العنوان او المدينة" value="" type="text">
+                                                        <i class="detect-me fa fa-crosshairs"></i>
+                                                        <input name="latitude" type="hidden" id="search_lat" value="">
+                                                        <input name="longitude" type="hidden" id="search_lon" value="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-12 col-sm-4">
+                                                <div class="search-widget">
+                                                    <button class="btn col-md-12 btn-theme" id="btnSearch">إظهر النتائج</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</section>

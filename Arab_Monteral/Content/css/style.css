@@ -244,6 +244,9 @@ a:hover, a:focus, .ad-archive-desc .category-title a, .testimonial-style-2 .test
 .mb-30{
     margin-bottom: 30px;
 }
+.mb-10{
+    margin-bottom: 10px;
+}
 
 .padding-right-50{
     padding-right: 50%;
@@ -301,8 +304,8 @@ ul.pagination li a:hover:not(.active)
     display: inline-block;
     position: relative;
     cursor: pointer;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     box-shadow: 0 2px 2px #999;
     padding: 0px;
     text-decoration: none;

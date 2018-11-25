@@ -12,43 +12,59 @@
     <section class="dashboard">
         <div class="container">
         <div class="row">
-                
-            <div class="col-md-8 col-xs-12 col-sm-12">
-                <div class="profile-detail-area" style="margin-right: 25%;">
-                    <div class="new-banner-image_dwt_full_width">
-                        <a href="" target="_blank">
-                            <img class="img-responsive" src="~/Content/wp-content/uploads/sites/5/2018/02/b3.jpg" alt="">
-                        </a>
+            <div class="col-lg-2 col-xs-12 col-md-2 leftSidebar">
+                <section>
+                    <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none; top: 0px; left: 1079.5px;">
+                        <div class="list-image-section">
+                            <a href="" target="_blank"><img class="img-responsive" src="~/Content/wp-content/uploads/sites/5/2018/02/b1.png" alt=""></a>
+                        </div>
                     </div>
+                </section>
+            </div>
+            <div class="col-md-8 col-xs-12 col-sm-12" style="padding-top: 70px;">
+                <div class="profile-detail-area" style="margin-right: 0;">
+                   
                     <div class="dashboard-tabs" role="tabpanel">
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane fade in active" id="my-listingz">
                                 <div class="ads-list-archive masonery_item">
                                     <div class="foo">
+                                        
                                         <br />
-                                        <div class="col-md-8 col-sm-6 col-xs-12  nopadding">
+
+                                        <div class="col-md-8 col-sm-6 col-xs-12" style="margin-right: 15%;">
+                                            @*<label style="color: #706868;font-size: 27px;font-weight: 100;padding-bottom: 15px;">@Model.FirstName @Model.LastName</label>*@
                                             <div class="ad-archive-img">
                                                 <a href="">
-                                                    <img class="img-responsive" src="~/@Model.CardImage" onerror="this.src='../../Uploads/Default.jpg'" style="border-style:solid; border-color:darkred; border-width:1px; width:90%; margin-right:15px" alt="سوبر ماركت سليب هولو...">
+                                                    <img class="img-responsive" src="~/@Model.CardImage" onerror="this.src = '../../Uploads/Default.jpg'" style="border-style:solid; border-color:darkred; border-width:1px; width:90%; margin-right:15px" alt="سوبر ماركت سليب هولو...">
                                                 </a>
                                             </div>
                                             @*<div class="socialLinks" style="padding-top: 25px;padding-right: 136px;height: 94px;">
-                                                <span><img alt="الصورة غير موجود" src="~/Content/assets/profile_contacts/fb.png" class="img-responsive" style="width:40px; height:40px; float:right;margin-left: 10px;"></span>
-                                                <span><img alt="الصورة غير موجود" src="~/Content/assets/profile_contacts/twitter.png" class="img-responsive" style="width:40px; height:40px; float:right;margin-left: 10px;"> </span>
-                                                <span><img alt="الصورة غير موجود" src="~/Content/assets/profile_contacts/website.png" class="img-responsive" style="width:40px; height:40px; float:right;margin-left: 10px;"> </span>
-                                                <span><img alt="الصورة غير موجود" src="~/Content/assets/profile_contacts/google_map.png" class="img-responsive" style="width:40px; height:40px; float:right;margin-left: 10px;"> </span>
-                                                <span><img alt="الصورة غير موجود" src="~/Content/assets/profile_contacts/readmore.png" class="img-responsive" style="width:40px; height:40px; float:right;margin-left: 10px;"> </span>
-                                            </div>*@
+                <span><img alt="الصورة غير موجود" src="~/Content/assets/profile_contacts/fb.png" class="img-responsive" style="width:40px; height:40px; float:right;margin-left: 10px;"></span>
+                <span><img alt="الصورة غير موجود" src="~/Content/assets/profile_contacts/twitter.png" class="img-responsive" style="width:40px; height:40px; float:right;margin-left: 10px;"> </span>
+                <span><img alt="الصورة غير موجود" src="~/Content/assets/profile_contacts/website.png" class="img-responsive" style="width:40px; height:40px; float:right;margin-left: 10px;"> </span>
+                <span><img alt="الصورة غير موجود" src="~/Content/assets/profile_contacts/google_map.png" class="img-responsive" style="width:40px; height:40px; float:right;margin-left: 10px;"> </span>
+                <span><img alt="الصورة غير موجود" src="~/Content/assets/profile_contacts/readmore.png" class="img-responsive" style="width:40px; height:40px; float:right;margin-left: 10px;"> </span>
+            </div>*@
                                             <div id="social">
-                                                <a class="facebookBtn smGlobalBtn" href="#"></a>
-                                                <a class="twitterBtn smGlobalBtn" href="#"></a>
-                                                <a class="smGlobalBtn" href="#"> <img alt="الصورة غير موجود" src="~/Content/assets/profile_contacts/google_map.png" style="width:50px; height:48px;border-radius: 50%;"> </a>
-                                                <a class="smGlobalBtn" href="#"> <img alt="الصورة غير موجود" src="~/Content/assets/profile_contacts/website.png" style="width:50px; height:48px;border-radius: 50%;"> </a>
-                                                <a class="smGlobalBtn" href="#"> <img alt="الصورة غير موجود" src="~/Content/assets/profile_contacts/readmore.png" style="width:50px; height:48px;border-radius: 50%;"> </a>
+                                                @*<a class="facebookBtn smGlobalBtn" href="#"></a>
+                <a class="twitterBtn smGlobalBtn" href="#"></a>*@
+                                                <a class="" href="#"> <img alt="الصورة غير موجود" src="~/Content/assets/profile_contacts/fb.png" style="width:40px; height:40px;margin-left: 15px;border-radius: 50%;"> </a>
+                                                <a class="" href="#"> <img alt="الصورة غير موجود" src="~/Content/assets/profile_contacts/twitter.png" style="width:40px; height:40px;margin-left: 15px;border-radius: 50%;"> </a>
+                                                <a class="" href="#"> <img alt="الصورة غير موجود" src="~/Content/assets/profile_contacts/google_map.png" style="width:40px; height:40px;margin-left: 15px;border-radius: 50%;"> </a>
+                                                <a class="" href="#"> <img alt="الصورة غير موجود" src="~/Content/assets/profile_contacts/website.png" style="width:40px; height:40px;margin-left: 15px;border-radius: 50%;"> </a>
+                                            </div>
+                                            <div class="profileBtn">
+                                                <a class="btn btn-sm btn-default mb-10" style="font-size: 10px;width: 25%;margin-bottom: 10px;" href="#" target="_blank"><span class="glyphicon glyphicon-file"></span> تحميل PDF</a>
+                                                <a class="btn btn-sm btn-default mb-10" style="font-size: 10px;width: 25%;margin-bottom: 10px;" href="#"><span class="glyphicon glyphicon-share"></span> شارك</a>
+                                                <a class="btn btn-sm btn-default mb-10" style="font-size: 10px;width: 25%;margin-bottom: 10px;" href="#"><span class="glyphicon glyphicon-user"></span> أرسل لصديق</a>
+                                                <a class="btn btn-sm btn-default mb-10" style="font-size: 10px;width: 25%;margin-bottom: 10px;" href="#"><span class="glyphicon glyphicon-print"></span> طباعة</a>
+                                                <a class="btn btn-sm btn-default mb-10" style="font-size: 10px;width: 25%;margin-bottom: 10px;" href=""><span class="glyphicon glyphicon-phone"></span> ارسل الى الهاتف</a>
+                                                <a class="btn btn-sm btn-default mb-10" style="font-size: 10px;width: 25%;margin-bottom: 10px;" href=""><span class="glyphicon glyphicon-book"></span> قراءة المزيد</a>
                                             </div>
 
                                         </div>
-                                            
+
                                     </div>
                                 </div>
                                 <div class="ads-list-archive masonery_item">
@@ -117,10 +133,20 @@
                                         </div>
                                     </form>
                                 </div>
+                                <a href="~/Home/Index" class="btn btn-default">الصفحة الرئيسية</a>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-lg-2 col-xs-12 col-md-2 rightSidebar">
+                <section>
+                    <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none; top: 0px; left: 1079.5px;">
+                        <div class="list-image-section">
+                            <a href="" target="_blank"><img class="img-responsive" src="~/Content/wp-content/uploads/sites/5/2018/02/b1.png" alt=""></a>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
       </div>

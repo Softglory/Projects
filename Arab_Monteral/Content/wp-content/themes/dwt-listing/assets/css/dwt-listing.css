@@ -2876,16 +2876,22 @@ footer:before {
 	display: block
 }
 .footer {
-	padding: 50px 0;
+	padding: 15px 0;
 	background: #fff url(../images/city.png) repeat-x scroll center bottom;
-	padding-bottom: 90px;
+	padding-bottom: 5px;
 	border-top: 1px solid #f1f1f1
 }
 .footer h3 {
 	margin: 0
 }
 .footer .ft-left .footer-img {
-	padding: 0 0 10px 0
+	padding: 0 0 10px 0;
+    width: 95px;
+    height: 110px;
+    margin-left: 10px;
+    margin-right: 0px;
+    clear: both;
+
 }
 .footer .ft-left p {
 	color: #818181;
@@ -10454,15 +10460,15 @@ span.bookmarkz-listing i {
 	position: relative;
 	padding: 200px 0
 }
-.new-hero-explore-section::before {
-	content: "";
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	position: absolute;
-	background: rgba(0, 7, 81, 0.7);
-}
+    .new-hero-explore-section::before {
+        content: "";
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        background: rgba(85, 76, 76, 0.38);
+    }
 .new-layer-image {
 	position: absolute;
 	top: 0;
@@ -11010,15 +11016,15 @@ span.bookmarkz-listing i {
     position: relative;
     padding: 245px 0 0;
 }
-.new-hero-explore-section::before {
-	content: "";
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	position: absolute;
-	background: rgba(0, 0, 0, 0.7);
-}
+    .new-hero-explore-section::before {
+        content: "";
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        background: rgba(85, 76, 76, 0.38);
+    }
 .new-layer-image {
 	position: absolute;
 	top: 0;
@@ -11139,7 +11145,8 @@ span.bookmarkz-listing i {
 }
 .new-banner-image_dwt img {
 	width: 100%;
-    text-align:center
+    text-align:center;
+    height: 200px;
 }
 
 .member_work_images_small {
