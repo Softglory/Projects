@@ -17,6 +17,13 @@ namespace Arab_Monteral.Controllers
             this.CompanyService = companyService;
         }
 
+        public ActionResult Index(int? page)
+        {
+            List<Company> Companies = CompanyService.GetCompanys();
+           
+            return View(Companies);
+        }
+
         public ActionResult Create(int? ID)
         {
             if (ID != null) //edit
@@ -73,10 +80,16 @@ namespace Arab_Monteral.Controllers
                     CompanyService.EditCompany(comp);
                 }
 
-                return RedirectToAction("Index", "Home");
+                return Redirect("~/Company/Details/" + comp.CompanyId);
             }
 
             return View(CompanyView);
+        }
+
+        public ActionResult Details(int ID)
+        {
+            Company Company = CompanyService.GetCompanyByID(ID);
+            return View(Company);
         }
     }
 }

@@ -1,0 +1,50 @@
+﻿@model Model.Company
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="navBarWithNoAd"></section>
+
+<div class="container mt-15 mb-30">
+    <h2>بينات الشركة</h2>
+    <p>
+        @Html.ActionLink("تعديل البينات", "Create", new { id = Model.CompanyId }, new { @class = "btn btn-primary", style = "width: 11%;" })
+    </p>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>الإسم</th>
+            <td>@Model.CompanyName</td>
+        </tr>
+        <tr>
+            <th>معلومات عنا</th>
+            <td>@Model.AboutUs</td>
+        </tr>
+        <tr>
+            <th>رقم الهاتف ١</th>
+            <td>@Model.Phone1</td>
+        </tr>
+        <tr>
+            <th>رقم الهاتف ٢</th>
+            <td>@Model.Phone2</td>
+        </tr>
+        <tr>
+            <th> عنوان١</th>
+            <td>@Model.Address1</td>
+        </tr>
+        <tr>
+            <th>عنوان٢</th>
+            <td>@Model.Address2</td>
+        </tr>
+        <tr>
+            <th>الفاكس </th>
+            <td>@Model.Fax</td>
+        </tr>
+        <tr>
+            <th>البريد الإلكتروني</th>
+            <td>@Model.Email</td>
+        </tr>
+     
+    </table>
+</div>
+

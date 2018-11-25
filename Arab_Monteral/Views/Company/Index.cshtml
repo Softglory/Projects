@@ -1,0 +1,57 @@
+﻿
+@model  List<Model.Company>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<section class="navBarWithNoAd"></section>
+<div class="container">
+    <div class="row">
+        <section class="content">
+            <h2>الشركات</h2>
+            <p>
+                @Html.ActionLink("اضافه", "Create", new { }, new { @class = "btn btn-success" })
+            </p>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayName("الإسم")
+                        </th>
+                        <th>
+                            @Html.DisplayName("البريد الإلكتروني")
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CompanyName)
+                        </td>
+                        
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+
+                        <td>
+                            @Html.ActionLink("تفاصيل", "Details", new { id = item.CompanyId }, new { @class = "btn btn-info" }) |
+                            @Html.ActionLink("تعديل", "Create", new { id = item.CompanyId }, new { @class = "btn btn-primary" })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+
+        </section>
+
+    </div>
+
+</div>
