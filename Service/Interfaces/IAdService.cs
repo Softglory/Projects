@@ -1,6 +1,8 @@
 ﻿using Model;
 using System;
 using System.Collections.Generic;
+using Model.ViewModels;
+using PagedList;
 
 namespace Service
 {
@@ -11,5 +13,6 @@ namespace Service
         void CreateAd(Ad Ad);
         void EditAd(Ad Ad);
         void SaveAd();
+        IPagedList<AdViewModel> PagedAds(int page);
     }
 }

@@ -5,10 +5,9 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<section class="navBarWithNoAd"></section>
+<section class="adminNavBar"></section>
 
 <div class="container mt-15 mb-30">
-
 
     @if (Model == null)
     {
@@ -46,6 +45,28 @@
                 </div>
             </div>
             <div class="form-group">
+                @Html.Label("(En)الإسم الأول", htmlAttributes: new { @class = "control-label col-md-2 required" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FirstNameEn, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FirstNameEn, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("(En)الإسم الأخير", htmlAttributes: new { @class = "control-label col-md-2 required" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.LastNameEn, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.LastNameEn, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("البريد الإلكتروني", htmlAttributes: new { @class = "control-label col-md-2 required" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
                 @Html.Label("المهنه", htmlAttributes: new { @class = "control-label col-md-2 required" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.ProfessionTitle, new { htmlAttributes = new { @class = "form-control" } })
@@ -64,12 +85,12 @@
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
-                    
+
                     @*@if(Model != null)
-                    {
-                        <a style="color: #b90202e0" href="http://maps.google.com/?q=@Model.Location" target="_blank" rel="noopener noreferrer"> Location on map</a>
-                    }*@
-                   
+                        {
+                            <a style="color: #b90202e0" href="http://maps.google.com/?q=@Model.Location" target="_blank" rel="noopener noreferrer"> Location on map</a>
+                        }*@
+
                 </div>
             </div>
             <div class="form-group">
@@ -118,6 +139,33 @@
             </div>
 
             <div class="form-group">
+                <label class="control-label col-md-2">كلمات مساعدة</label>
+                <div class="col-md-10">
+                    <div class="divKeywords">
+                        <table class="table table-borderless" id="container">
+                            @if (Model.Keywords != null)
+                            {
+                                var itemIndex = 0;
+                                foreach (var word in (Model.Keywords))
+                                {
+                                    <tr>
+                                        <td>
+                                            <input id='Keywords_@itemIndex __Id' type='hidden' value=@word.AccountKeywordId class='iHidden' name='Keywords[@itemIndex].AccountKeywordId' />
+                                            <input type='text' id='Keywords_@itemIndex __InterestText' value=@word.KeyWord class="form-control col-md-2" name='Keywords[@itemIndex].KeyWord' />
+                                        </td>
+                                    </tr>
+                                    itemIndex++;
+                                }
+                            }
+                        </table>
+                        <button type="button" id="btnAdd" class="btn btn-primary" style="width: 6%;"><span class="fa fa-plus"></span></button>
+                        @*<input type="button" id="btnAdd" value="Add New Item" />*@
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group">
                 @Html.Label("الحساب موجود", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     <div class="checkbox">
@@ -126,7 +174,7 @@
                     </div>
                 </div>
             </div>
-            
+
 
 
             <div class="form-group">
@@ -147,3 +195,27 @@
 
 
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script>
+        $(document).ready(function(){
+
+            $(function () {
+                $("#btnAdd").click(function (e) {
+                    var itemIndex = $("#container input.iHidden").length;
+                    e.preventDefault();
+                    var newItem = $("<tr><td><input id='Keywords_" + itemIndex + "__Id' type='hidden' value='' class='iHidden'  name='Keywords[" + itemIndex + "].AccountKeywordId' /><input type='text' id='Keywords_" + itemIndex + "__KeywordText' class='form-control col-md-2' name='Keywords[" + itemIndex + "].KeyWord'/></td>");
+                    $("#container").append(newItem);
+
+                });
+            });
+
+        });
+
+
+</script>
+   
+
+
+}

@@ -2,6 +2,8 @@
 
 namespace Data.Migrations
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -20,6 +22,8 @@ namespace Data.Migrations
             // static data for testing 
             AddComapny(context);
             AddAccount(context);
+            AddRoles(context);
+            AddAdmin(context);
         }
 
         public void AddComapny(DBEntities context)
@@ -107,6 +111,45 @@ namespace Data.Migrations
                     context.Accounts.Add(user);
             }
             context.Commit();
+        }
+
+        private void AddRoles(DBEntities context)
+        {
+            List<IdentityRole> Roles = new List<IdentityRole>()
+            {
+                new IdentityRole()
+                {
+                    Name = "Admin"
+                }
+            };
+
+            foreach (IdentityRole role in Roles)
+            {
+                IdentityRole RoleExists = context.Roles.FirstOrDefault(r => r.Name == role.Name);
+                if (RoleExists == null)
+                    context.Roles.Add(role);
+            }
+            context.Commit();
+        }
+
+        private void AddAdmin(DBEntities context)
+        {
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            var PasswordHash = new PasswordHasher();
+            if (!context.Users.Any(u => u.UserName == "admin@admin.net"))
+            {
+                var user = new ApplicationUser
+                {
+                    UserName = "admin@admin.net",
+                    Email = "admin@admin.net",
+                    PasswordHash = PasswordHash.HashPassword("123456")
+                };
+
+                UserManager.Create(user);
+
+                IdentityRole ManagerRole = context.Roles.FirstOrDefault(r => r.Name == "Admin");
+                UserManager.AddToRole(user.Id, ManagerRole.Id);
+            }
         }
     }
 }

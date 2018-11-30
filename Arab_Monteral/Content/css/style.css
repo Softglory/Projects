@@ -24,8 +24,16 @@ img.emoji {
 }
 
 .navBarWithNoAd {
-   background:  rgba(0,0,0,.7);
-    padding: 84px 0;
+    /*background: rgba(33, 46, 75, 0.7);*/
+    padding: 62px 0;
+}
+.adminNavBar {
+    background-image: url('../wp-content/themes/dwt-listing/assets/images/secure.jpg');
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-attachment: fixed !important;
+    padding: 62px 0;
 }
 
 body {

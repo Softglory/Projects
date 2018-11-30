@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using Model.ViewModels;
 using System.IO;
+using PagedList;
 
 namespace Arab_Monteral.Controllers
 {
@@ -18,7 +19,16 @@ namespace Arab_Monteral.Controllers
             this.AdService = adService;
         }
 
+        [Authorize(Roles = "Admin")]
+        public ActionResult Index(int? page)
+        {
+
+            IPagedList<AdViewModel> PagedAccounts = AdService.PagedAds(page ?? 1);
+            return View(PagedAccounts);
+        }
+
         // GET: Ads
+        [Authorize(Roles = "Admin")]
         public ActionResult AdsAdmin(int?ID)
         {
             List<string> Carrers = new List<string>();
@@ -40,6 +50,8 @@ namespace Arab_Monteral.Controllers
                 AdViewModel AdView = new AdViewModel()
                 {
                     AdId = Ad.AdId,
+                    AdDescription = Ad.AdDescription,
+                    AdType = Ad.AdType,
                     AdImage = Ad.AdImage,
                     AdCarrer = Ad.AdCarrer,
                     CreatedOn = Ad.CreatedOn,
@@ -94,6 +106,8 @@ namespace Arab_Monteral.Controllers
                 {
                     AdId = AdView.AdId,
                     AdImage = AdView.AdImage,
+                    AdDescription = AdView.AdDescription,
+                    AdType = AdView.AdType,
                     AdCarrer = AdView.AdCarrer,
                     CreatedOn = AdView.CreatedOn,
                     ModifiedOn = AdView.ModifiedOn

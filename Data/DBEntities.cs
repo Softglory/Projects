@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Model;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Data
 {
-    public class DBEntities : DbContext 
+    public class DBEntities : IdentityDbContext<ApplicationUser>
     {
-        public DBEntities() : base("DBEntities")
+        public DBEntities() : base("DBEntities", throwIfV1Schema: false)
         {
 
         }
@@ -22,8 +23,14 @@ namespace Data
         public IDbSet<SearchCount> SearchCounts { get; set; }
         public IDbSet<Company> Companies { get; set; }
         public IDbSet<Ad> Ads { get; set; }
+        public IDbSet<AccountKeyword> AccountKeywords { get; set; }
 
         #endregion
+
+        public static DBEntities Create()
+        {
+            return new DBEntities();
+        }
 
         public virtual void Commit()
         {
@@ -32,6 +39,13 @@ namespace Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<ApplicationUser>().ToTable("Users"); // renaming identity tables
+            modelBuilder.Entity<IdentityRole>().ToTable("Roles");
+            modelBuilder.Entity<IdentityUserRole>().ToTable("UserRoles");
+            modelBuilder.Entity<IdentityUserLogin>().ToTable("UserLogins");
+            modelBuilder.Entity<IdentityUserClaim>().ToTable("UserClaims");
+
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

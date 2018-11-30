@@ -3,12 +3,17 @@
 
 @{
     ViewBag.Title = "Results";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Request.IsAuthenticated)
+    {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
 }
 
-<section class="navBarWithNoAd">
-
-</section>
+<section class="adminNavBar"></section>
 
 
 
@@ -35,9 +40,9 @@
                 {
                     <div class="">
                         <div class="panel panel-default">
-                            <div class="panel-body">
+                            <div>
                                 <div class="table-container">
-                                    <table class="table table-filter">
+                                    <table class="table">
                                         <tbody>
 
                                             @foreach (var item in Model)
@@ -45,17 +50,20 @@
                                                 <tr>
                                                     <td>
                                                         <div class="media">
-                                                            <a href="../Accounts/AccountProfile/@item.AccountId" class="pull-right">
+                                                            <a href="../Accounts/AccountProfile/@item.AccountId" class="pull-right col-md-5">
                                                                 <img src="../@item.CardImage" onerror="this.src = '@HttpRuntime.AppDomainAppVirtualPath/Uploads/Default.jpg'" class="card-200">
                                                             </a>
                                                             <div class="media-body">
-                                                                <label class="media-meta pull-left mt-15 ">عدد عمليات البحث <span class="badge">@item.NoOfSearches</span></label>
-                                                                <h4 class="title resultTitle">
-                                                                    @item.FirstName @item.LastName
-                                                                </h4>
-                                                                <p class="summary">
-                                                                    تعمل فى مجال @item.ProfessionTitle
-                                                                </p>
+                                                                <label class="media-meta pull-left col-md-5 ">عدد عمليات البحث <span class="badge">@item.NoOfSearches</span></label>
+                                                                <div>
+                                                                    <h4 class="title resultTitle">
+                                                                        @item.FirstName @item.LastName
+                                                                    </h4>
+                                                                    <p class="summary">
+                                                                        تعمل فى مجال @item.ProfessionTitle
+                                                                    </p>
+                                                                </div>
+                                                               
                                                             </div>
                                                         </div>
                                                     </td>
@@ -65,15 +73,16 @@
                                     </table>
 
 
-                                    <div id="container" style="margin-left: 20px">
+                                    <div id="container">
                                         <p></p>
                                         <p></p>
-                                        <div class="pagination" style="margin-left: 400px">
+                                        <div class="pagination">
                                             @Html.PagedListPager(Model, page => Url.Action("Results", new { page }))
-
+                                        </div>
+                                        @*<div class="col-md-5">
                                             صفحة @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
                                             من @Model.PageCount
-                                        </div>
+                                        </div>*@
                                     </div>
 
                                 </div>

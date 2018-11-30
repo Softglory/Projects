@@ -6,6 +6,8 @@ using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Net.Mail;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,12 +19,14 @@ namespace Service
     {
         private readonly IAccountRepository AccountRepository;
         private readonly ISearchCountRepository SearchCountRepository;
+        private readonly IAccountKeywordRepository AccountKeywordRepository;
         private readonly IUnitOfWork unitOfWork;
 
-        public AccountService(IAccountRepository AccountRepository, ISearchCountRepository SearchCountRepository, IUnitOfWork unitOfWork)
+        public AccountService(IAccountRepository AccountRepository, ISearchCountRepository SearchCountRepository, IAccountKeywordRepository AccountKeywordRepository, IUnitOfWork unitOfWork)
         {
             this.AccountRepository = AccountRepository;
             this.SearchCountRepository = SearchCountRepository;
+            this.AccountKeywordRepository = AccountKeywordRepository;
             this.unitOfWork = unitOfWork;
         }
 
@@ -57,6 +61,8 @@ namespace Service
         public Account GetAccountByID(int ID)
         {
             Account Account = AccountRepository.GetByID(ID);
+            //get Account keywords
+            Account.Keywords = AccountKeywordRepository.Get(x => x.AccountId == ID).ToList();
             return Account;
         }
 
@@ -71,6 +77,15 @@ namespace Service
             Account.CreatedOn = DateTime.Now;
             Account.ModifiedOn = DateTime.Now;
             AccountRepository.Add(Account);
+
+            //Add key words
+            foreach (var word in Account.Keywords)
+            {
+                word.CreatedOn = DateTime.Now;
+                word.ModifiedOn = DateTime.Now;
+                word.Status = true;
+                AccountKeywordRepository.Add(word);
+            }
             SaveAccount();
         }
 
@@ -81,8 +96,30 @@ namespace Service
             {
                 Account.CardImage = AccountRepository.GetByID(Account.AccountId).CardImage;
             }
-            AccountRepository.Edit(Account.AccountId,Account);
-           SaveAccount();
+          
+            //update keywords 
+            //1- delete all account key words
+            //2- Add key words
+            foreach (var word in Account.Keywords)
+            {
+                AccountKeyword newWord = new AccountKeyword()
+                {
+                    AccountId = Account.AccountId,
+                    KeyWord = word.KeyWord,
+                    Status = word.Status,
+                    CreatedOn = DateTime.Now,
+                    ModifiedOn = DateTime.Now
+                };
+
+                AccountKeywordRepository.Delete(word);
+                
+                AccountKeywordRepository.Add(newWord);
+            }
+
+            Account.Keywords = null;
+            AccountRepository.Edit(Account.AccountId, Account);
+            SaveAccount();
+
         }
 
         public void RemoveAccount(int AccountId)
@@ -210,6 +247,77 @@ namespace Service
         {
             Account Acc = AccountRepository.Get(x => x.FirstName == FirstName && x.LastName == LastName).FirstOrDefault();
             return Acc;
+        }
+
+        public IPagedList<AccountViewModel> AccountRequests(int page)
+        {
+            List<Account> Accounts = new List<Account>();
+            Accounts = AccountRepository.Get(x => x.Status == false).ToList();
+
+            List<AccountViewModel> AccountsView = new List<AccountViewModel>();
+            foreach (Model.Account Acc in Accounts)
+            {
+                AccountViewModel AccView = new AccountViewModel()
+                {
+                    AccountId = Acc.AccountId,
+                    FirstName = Acc.FirstName,
+                    LastName = Acc.LastName,
+                    CardImage = Acc.CardImage,
+                    ProfessionTitle = Acc.ProfessionTitle,
+                    Phone = Acc.Phone,
+                    CompanyId = Acc.CompanyId,
+                    Location = Acc.Location,
+                    Status = Acc.Status,
+                    CreatedOn = Acc.CreatedOn,
+                    ModifiedOn = Acc.ModifiedOn,
+                    Company = Acc.Company,
+                    NoOfSearches = CountNoOfSearches(Acc.AccountId)
+                };
+                AccountsView.Add(AccView);
+            }
+
+            int PageSize = 5;
+            IPagedList<AccountViewModel> PagedResults = AccountsView.ToPagedList(page, PageSize);//paging 
+
+            return PagedResults;
+        }
+
+        public void ConfirmRequest(int ID)
+        {
+            //1- set account status to true 
+            Account Account = AccountRepository.GetByID(ID);
+            Account.Status = true;
+            Account.Keywords = null;
+            AccountRepository.Edit(Account.AccountId, Account);
+            SaveAccount();
+            //2- send confirmation mail to user 
+            SendMail("Arab Montreal Confimation", "Congratulations! After reviewig your information , your sccount has been accepted.", Account.Email);
+        }
+
+        public void JoinRequestMail(int ID)
+        {
+            Account Account = AccountRepository.GetByID(ID);
+            //1- send mail to Admin
+            SendMail("Arab Montreal Request", "A new Account request is waiting for your confirmation.", "arabmontreal5@gmail.com");
+            //2- send mail to user 
+            SendMail("Arab Montreal Request", "Thanks for taking your time to fill the join form. The Admin will review your info and will send you a confirmation letter once accepted.", Account.Email);
+        }
+
+        public void SendMail(string Subject, string Body, string ToMail)
+        {
+            MailMessage mail = new MailMessage();
+            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+            mail.From = new MailAddress("arabmontreal5@gmail.com");
+            mail.To.Add(ToMail);
+            mail.Subject = Subject;
+            mail.Body = Body;
+
+            SmtpServer.Port = 587;
+            SmtpServer.Credentials = new System.Net.NetworkCredential("arabmontreal5@gmail.com", "Admin123!");
+            SmtpServer.EnableSsl = true;
+
+            SmtpServer.Send(mail);
         }
     }
 }

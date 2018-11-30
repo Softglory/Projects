@@ -1,0 +1,57 @@
+﻿@using PagedList.Mvc
+@model  PagedList.IPagedList<Model.ViewModels.AdViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<section class="adminNavBar"></section>
+<div class="container">
+    <div class="row">
+        <section class="content col-md-10" style="margin-right: 5%;">
+            <h2>الاعلانات</h2>
+            <p>
+                @Html.ActionLink("اضافه", "AdsAdmin", new { }, new { @class = "btn btn-success", @style = "padding: 6px 0px;width: 10%;" })
+            </p>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayName("الاعلان")
+                        </th>
+                        <th>
+                            @Html.DisplayName("النوع")
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AdDescription)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AdType)
+                        </td>
+
+                        <td>
+                            @*@Html.ActionLink("تفاصيل", "Details", new { id = item.AdId }, new { @class = "btn btn-info", @style= "padding: 3px 0px;" }) |*@
+                            @Html.ActionLink("تعديل", "AdsAdmin", new { id = item.AdId }, new { @class = "btn btn-primary", @style = "padding: 3px 0px;" })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+
+        </section>
+
+    </div>
+
+</div>

@@ -19,5 +19,8 @@ namespace Service
         IPagedList<AccountViewModel> GeneralSearch(GeneralSearchView Filter, int page);
         List<AccountViewModel> GetLastNAccounts(int N);
         Account GetAccountByName(string FirstName, string LastName);
+        IPagedList<AccountViewModel> AccountRequests(int page);
+        void JoinRequestMail(int ID);
+        void ConfirmRequest(int ID);
     }
 }

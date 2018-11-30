@@ -7,15 +7,15 @@
 }
 
 
-<section class="navBarWithNoAd"></section>
+<section class="adminNavBar"></section>
 <div class="container">
     <div class="row">
-        <section class="content">
+        <section class="content col-md-10" style="margin-right: 5%;">
             <h2>حسابات المستخدمين</h2>
             <p>
-                @Html.ActionLink("اضافه", "Create", new { }, new { @class = "btn btn-success" })
+                @Html.ActionLink("اضافه", "Create", new { }, new { @class = "btn btn-success", @style="padding: 6px 0px;width: 10%;" })
             </p>
-            <table class="table table-striped">
+            <table class="table table-bordered">
                 <thead>
                 <tr>
                     <th>
@@ -26,9 +26,6 @@
                     </th>
                     <th>
                         @Html.DisplayName("المهنه")
-                    </th>
-                    <th>
-                        @Html.DisplayName("الحساب موجود")
                     </th>
 
                     <th></th>
@@ -44,18 +41,15 @@
                             @Html.DisplayFor(modelItem => item.LastName)
                         </td>
                         <td>
-                            <img for="files" src="@item.CardImage" onerror="this.src = 'Uploads/Default.jpg'" style="width:250px; height:90px" class="card-200">
+                            <img for="files" src="@item.CardImage" onerror="this.src = 'Uploads/Default.jpg'" style="width:220px; height:99px;margin-right: 15%;" class="card-200">
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.ProfessionTitle)
                         </td>
-                        <td>
-                            @Html.CheckBoxFor(modelItem => item.Status)
-                        </td>
 
                         <td>
-                            @Html.ActionLink("تفاصيل", "Details", new { id = item.AccountId }, new { @class = "btn btn-info" }) |
-                            @Html.ActionLink("تعديل", "Create", new { id = item.AccountId }, new { @class = "btn btn-primary" })
+                            @Html.ActionLink("تفاصيل", "Details", new { id = item.AccountId }, new { @class = "btn btn-info", @style = "padding: 3px 0px;" }) |
+                            @Html.ActionLink("تعديل", "Create", new { id = item.AccountId }, new { @class = "btn btn-primary", @style = "padding: 3px 0px;" })
                         </td>
                     </tr>
                 }

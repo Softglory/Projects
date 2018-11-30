@@ -7,15 +7,15 @@
 }
 
 
-<section class="navBarWithNoAd"></section>
+<section class="adminNavBar"></section>
 <div class="container">
     <div class="row">
-        <section class="content">
+        <section class="content col-md-10" style="margin-right: 5%;">
             <h2>الشركات</h2>
             <p>
-                @Html.ActionLink("اضافه", "Create", new { }, new { @class = "btn btn-success" })
+                @Html.ActionLink("اضافه", "Create", new { }, new { @class = "btn btn-success", @style = "padding: 6px 0px;width: 10%;" })
             </p>
-            <table class="table table-striped">
+            <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>
@@ -41,8 +41,8 @@
                         </td>
 
                         <td>
-                            @Html.ActionLink("تفاصيل", "Details", new { id = item.CompanyId }, new { @class = "btn btn-info" }) |
-                            @Html.ActionLink("تعديل", "Create", new { id = item.CompanyId }, new { @class = "btn btn-primary" })
+                            @Html.ActionLink("تفاصيل", "Details", new { id = item.CompanyId }, new { @class = "btn btn-info", @style= "padding: 3px 0px;" }) |
+                            @Html.ActionLink("تعديل", "Create", new { id = item.CompanyId }, new { @class = "btn btn-primary", @style = "padding: 3px 0px;" })
                         </td>
                     </tr>
                 }

@@ -11,8 +11,12 @@ namespace Model
         public int AccountId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string FirstNameEn { get; set; }
+        public string LastNameEn { get; set; }
+        public string Email { get; set; }
         public string CardImage { get; set; }
         public string ProfessionTitle { get; set; }
+        public string ProfessionTitleEn { get; set; }
         public string Phone { get; set; }
         public string Location { get; set; }
         public string FacebookUrl { get; set; }
@@ -23,6 +27,7 @@ namespace Model
         public DateTime CreatedOn { get; set; }
         public DateTime ModifiedOn { get; set; }
         public Company Company { get; set; }
+        public List<AccountKeyword> Keywords { get; set; }
 
     }
 }

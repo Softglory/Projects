@@ -21,6 +21,10 @@ namespace Arab_Monteral.Controllers
             List<AccountViewModel> Accounts = AccountService.GetLastNAccounts(10);
             return View(Accounts);
         }
+        public ActionResult JoinPopUp()
+        {
+            return View();
+        }
 
     }
 }

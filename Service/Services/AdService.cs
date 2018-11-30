@@ -1,6 +1,8 @@
 ﻿using Data.Infrastructure;
 using Data.Repositories;
 using Model;
+using Model.ViewModels;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,6 +53,33 @@ namespace Service
         public void SaveAd()
         {
             unitOfWork.Commit();
+        }
+
+        public IPagedList<AdViewModel> PagedAds(int page)
+        {
+            List<Ad> Ads = AdRepository.GetAll().ToList();
+
+            List<AdViewModel> AdsView = new List<AdViewModel>();
+            foreach (Ad Ad in Ads)
+            {
+                AdViewModel AdView = new AdViewModel()
+                {
+                    AdDescription = Ad.AdDescription,
+                    AdId = Ad.AdId,
+                    AdImage = Ad.AdImage,
+                    AdCarrer = Ad.AdCarrer,
+                    Status = Ad.Status,
+                    AdType = Ad.AdType,
+                    CreatedOn = Ad.CreatedOn,
+                    ModifiedOn = Ad.ModifiedOn
+                };
+                AdsView.Add(AdView);
+            }
+
+            int PageSize = 5;
+            IPagedList<AdViewModel> PagedResults = AdsView.ToPagedList(page, PageSize);//paging 
+
+            return PagedResults;
         }
 
 

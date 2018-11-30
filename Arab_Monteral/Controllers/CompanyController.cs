@@ -17,13 +17,14 @@ namespace Arab_Monteral.Controllers
             this.CompanyService = companyService;
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult Index(int? page)
         {
             List<Company> Companies = CompanyService.GetCompanys();
            
             return View(Companies);
         }
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Create(int? ID)
         {
             if (ID != null) //edit
@@ -86,6 +87,7 @@ namespace Arab_Monteral.Controllers
             return View(CompanyView);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int ID)
         {
             Company Company = CompanyService.GetCompanyByID(ID);

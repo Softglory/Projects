@@ -12,8 +12,7 @@ using PagedList;
 namespace Arab_Monteral.Controllers
 {
 
-
-   
+ 
     public class AccountsController : Controller
     {
         private readonly IAccountService AccountService;
@@ -23,6 +22,7 @@ namespace Arab_Monteral.Controllers
         }
 
         // GET: Accounts
+        [Authorize(Roles = "Admin")]
         public ActionResult Index(int? page)
         {
             List<AccountViewModel> Accounts = AccountService.GetAccounts();
@@ -31,6 +31,7 @@ namespace Arab_Monteral.Controllers
             return View(PagedAccounts);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult AccountProfile(int ID)
         {
             Model.Account Acc = AccountService.GetAccountByID(ID);
@@ -56,11 +57,13 @@ namespace Arab_Monteral.Controllers
             return View(AccView);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult Create(int? ID)
         {
             if (ID != null) //edit
             {
                 Model.Account Acc = AccountService.GetAccountByID(ID ?? 0);
+              
                 AccountViewModel AccView = new AccountViewModel()
                 {
                     AccountId = Acc.AccountId,
@@ -77,14 +80,16 @@ namespace Arab_Monteral.Controllers
                     Status = Acc.Status,
                     CreatedOn = Acc.CreatedOn,
                     ModifiedOn = Acc.ModifiedOn,
-                    Company = Acc.Company
+                    Company = Acc.Company,
+                    Keywords = Acc.Keywords
                 };
                 return View(AccView);
             }
-            return View();
+            return View(new AccountViewModel());
         }
 
         // POST: Account/Create/ID
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Create(AccountViewModel AccountView, int? ID, HttpPostedFileBase file)
         {
@@ -126,7 +131,8 @@ namespace Arab_Monteral.Controllers
                     Status = AccountView.Status,
                     CreatedOn = AccountView.CreatedOn,
                     ModifiedOn = AccountView.ModifiedOn,
-                    Company = AccountView.Company
+                    Company = AccountView.Company,
+                    Keywords = AccountView.Keywords
                 };
 
                 if (ID == null) //add
@@ -146,6 +152,7 @@ namespace Arab_Monteral.Controllers
             return View(AccountView);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int ID)
         {
           Model.Account Acc = AccountService.GetAccountByID(ID);
@@ -165,12 +172,14 @@ namespace Arab_Monteral.Controllers
               Status = Acc.Status,
               CreatedOn = Acc.CreatedOn,
               ModifiedOn = Acc.ModifiedOn,
-              Company = Acc.Company
+              Company = Acc.Company,
+              Keywords = Acc.Keywords
           };
           return View(AccView);
        
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult OldProfile(int ID)
         {
             Model.Account Acc = AccountService.GetAccountByID(ID);
@@ -194,6 +203,89 @@ namespace Arab_Monteral.Controllers
             };
             AccView.NoOfSearches = AccountService.CountNoOfSearches(ID);
             return View(AccView);
+        }
+
+        public ActionResult JoinAccount()
+        {
+            return View(new AccountViewModel());
+        }
+
+
+        [HttpPost]
+        public ActionResult JoinRequest(AccountViewModel AccountView,HttpPostedFileBase file)
+        {
+            AccountView.CreatedOn = DateTime.Now;
+            AccountView.ModifiedOn = DateTime.Now;
+            ModelState.Clear();
+            TryValidateModel(AccountView);
+
+            if (ModelState.IsValid)
+            {
+                //upload File
+                if (file != null)
+                {
+                    var fileName = Path.GetFileName(file.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Uploads"), fileName);
+                    file.SaveAs(path);
+
+                    fileName = Path.GetFileName(path);
+                    AccountView.CardImage = "Uploads/" + fileName;
+                }
+
+                Model.Account Acc = new Account()
+                {
+                    AccountId = AccountView.AccountId,
+                    FirstName = AccountView.FirstName,
+                    LastName = AccountView.LastName,
+                    CardImage = AccountView.CardImage,
+                    ProfessionTitle = AccountView.ProfessionTitle,
+                    Phone = AccountView.Phone,
+                    CompanyId = AccountView.CompanyId,
+                    Location = AccountView.Location,
+                    FacebookUrl = AccountView.FacebookUrl,
+                    TwitterUrl = AccountView.TwitterUrl,
+                    Website = AccountView.Website,
+                    Status = false,
+                    CreatedOn = AccountView.CreatedOn,
+                    ModifiedOn = AccountView.ModifiedOn,
+                    Company = AccountView.Company,
+                    Keywords = AccountView.Keywords,
+                    Email = AccountView.Email,
+                    FirstNameEn = AccountView.FirstNameEn,
+                    LastNameEn = AccountView.LastNameEn
+                };
+
+                AccountService.CreateAccount(Acc);
+                Acc = AccountService.GetAccountByName(Acc.FirstName, Acc.LastName);
+
+                //send email to both the user and the admin 
+                AccountService.JoinRequestMail(Acc.AccountId);
+
+                ViewBag.ConfirmMessage = "An Email has been sent to you";
+                return Redirect("~/Home/Index/");
+            }
+
+            return View(AccountView);
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public ActionResult AccountRequests(int? page)
+        {
+            List<AccountViewModel> Accounts = AccountService.GetAccounts();
+            SearchViewModel EmptySearch = new SearchViewModel();
+            IPagedList<AccountViewModel> PagedAccounts = AccountService.AccountRequests(page ?? 1);
+            return View(PagedAccounts);
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public ActionResult ConfirmRequest(int ID)
+        {
+            AccountService.ConfirmRequest(ID);
+            
+            IPagedList<AccountViewModel> PagedAccounts = AccountService.AccountRequests(1);
+            return View("AccountRequests", PagedAccounts);
         }
     }
 }

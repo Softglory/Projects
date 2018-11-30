@@ -4,14 +4,14 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<section class="navBarWithNoAd"></section>
+<section class="adminNavBar"></section>
 
 <div class="container mt-15 mb-30">
     <h2>بينات المستخدم</h2>
     <p>
         @Html.ActionLink("تعديل البينات", "Create", new { id = Model.AccountId }, new { @class = "btn btn-primary", style = "width: 11%;" })
     </p>
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped col-md-8">
         <tr>
             <th>الإسم</th>
             <td>@Model.FirstName @Model.LastName</td>
@@ -41,9 +41,16 @@
             <td>@Model.Website</td>
         </tr>
         <tr>
-            <th>الحساب موجود</th>
+            <th>كلمات مساعدة</th>
             <td>
-                @Html.CheckBox("الحساب موجود", Model.Status, new { @disabled = "disabled" })
+                @if (Model.Keywords != null)
+                {
+                    foreach (var word in (Model.Keywords))
+                    { 
+                         <p>@word.KeyWord </p>
+
+                    }
+                }
             </td>
         </tr>
         <tr>
