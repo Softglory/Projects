@@ -1,4 +1,4 @@
-﻿@using PagedList.Mvc 
+﻿@using PagedList.Mvc
 @model  PagedList.IPagedList<Model.ViewModels.AccountViewModel>
 
 @{
@@ -13,8 +13,15 @@
     }
 }
 
-<section class="adminNavBar"></section>
 
+@if (Request.IsAuthenticated)
+{
+    <section class="adminNavBar"></section>
+}
+else
+{
+    <section class="UserNavBar"></section>
+}
 
 
 <div class="container">
@@ -27,7 +34,7 @@
                     </div>
                 </div>
             </section>
-            
+
         </div>
         <div class="col-lg-8 col-xs-12">
             <section class="content">
@@ -63,7 +70,7 @@
                                                                         تعمل فى مجال @item.ProfessionTitle
                                                                     </p>
                                                                 </div>
-                                                               
+
                                                             </div>
                                                         </div>
                                                     </td>
@@ -80,9 +87,9 @@
                                             @Html.PagedListPager(Model, page => Url.Action("Results", new { page }))
                                         </div>
                                         @*<div class="col-md-5">
-                                            صفحة @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
-                                            من @Model.PageCount
-                                        </div>*@
+                                                صفحة @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+                                                من @Model.PageCount
+                                            </div>*@
                                     </div>
 
                                 </div>
@@ -102,7 +109,7 @@
                     </div>
                 </div>
             </section>
-            
+
         </div>
 
     </div>

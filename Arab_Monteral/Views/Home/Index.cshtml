@@ -13,12 +13,13 @@
 
 
 <div class="nopadding">
+    @*@Html.Partial("JoinPopUp", new Model.ViewModels.AccountViewModel())*@
     @Html.Partial("SearchPartialView", new Model.ViewModels.GeneralSearchView())
     @Html.Partial("AdsPartialView")
     @Html.Partial("CardsPartialView", @Model)
     @Html.Partial("AdvancedSearchPartialView", new Model.ViewModels.SearchViewModel())
     @Html.Partial("CarrersPartialView")
-    @Html.Partial("JoinPopUp", new Model.ViewModels.AccountViewModel())
+
 
 
     @*<input type="hidden" id="dwt_listing_ajax_url" value="wp-admin/admin-ajax.html" />

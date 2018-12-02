@@ -18,12 +18,14 @@ namespace Data
 
         }
 
-        #region Entity Sets
+        #region Entity Sets 
         public IDbSet<Account> Accounts { get; set; }
         public IDbSet<SearchCount> SearchCounts { get; set; }
         public IDbSet<Company> Companies { get; set; }
         public IDbSet<Ad> Ads { get; set; }
         public IDbSet<AccountKeyword> AccountKeywords { get; set; }
+        public IDbSet<Service> Services { get; set; }
+       // public IDbSet<AccountService> AccountServices { get; set; }
 
         #endregion
 
@@ -54,6 +56,8 @@ namespace Data
             modelBuilder.Configurations.Add(new SearchCountConfiguration());
             modelBuilder.Configurations.Add(new CompanyConfiguration());
             modelBuilder.Configurations.Add(new AdConfiguration());
+            modelBuilder.Configurations.Add(new ServiceConfiguration());
+            modelBuilder.Configurations.Add(new AccountServiceConfiguration());
 
 
         }

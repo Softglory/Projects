@@ -121,13 +121,23 @@
                         <ul class="menu-logo">
                             <li>
                                 <a href="index.html">
-                                    <img src="@Request.Url.GetLeftPart(UriPartial.Authority)@Request.ApplicationPath/Content/wp-content/uploads/sites/5/2018/06/logo-white.png" style="width:100px; height:auto" alt="صورة اللوغو" class="img-responsive">
+                                    <img src="@Request.Url.GetLeftPart(UriPartial.Authority)@Request.ApplicationPath/Content/wp-content/uploads/sites/5/2018/06/logo-white.png" style="width:60px; height:auto" alt="صورة اللوغو" class="img-responsive">
                                 </a>
                             </li>
                         </ul>
-                            <ul class="menu-button ">
+                        @*<ul class="menu-button ">
                                 <li class="post-btn">
-                                    <a id="btnShowModal" ">
+                                    <a id="btnShowModal">
+                                        <i class="fa fa-plus"></i>
+                                        <span>
+                                            إشترك معنا
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>*@
+                        <ul class="menu-button ">
+                                <li class="post-btn">
+                                    <a href="@Url.Action("JoinAccount", "Accounts")">
                                         <i class="fa fa-plus"></i>
                                         <span>
                                             إشترك معنا
@@ -135,6 +145,7 @@
                                     </a>
                                 </li>
                             </ul>
+
                         
 
                         <ul class="menu-links"style="padding-top:45px;">
@@ -143,7 +154,7 @@
 
                         <ul class="menu-links" style="padding-top:45px">
                             <li>
-                                <a href="index.html">الصفحة الرئيسية <i class="fa-indicator"></i></a>
+                                <a href="@Url.Action("Index", "Home")">الصفحة الرئيسية <i class="fa-indicator"></i></a>
                             </li>
                             <li><a href="#">بحث <i class="fa fa-angle-down fa-indicator"></i></a>
                                 <ul class="drop-down-multilevel grid-col-12"><li class="hoverTrigger"><a href="">التسوق </a><li class="hoverTrigger"><a href="">السيارات </a><li class="hoverTrigger"><a href="">الصحة </a><li class="hoverTrigger"><a href="">العقارات </a><li class="hoverTrigger"><a href="">الفنادق </a><li class="hoverTrigger"><a href="">خدمات </a><li class="hoverTrigger"><a href="">فنون </a><li class="hoverTrigger"><a href="">مطعم </a></ul></li>

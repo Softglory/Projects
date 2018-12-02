@@ -15,6 +15,7 @@ namespace Service
         void RemoveAccount(int AccountId);
         void SaveAccount();
         int CountNoOfSearches(int ID);
+        List<Model.AccountService> GetAccountServices(int AccountId);
         IPagedList<AccountViewModel> FilterAccounts(SearchViewModel Filter, int page);
         IPagedList<AccountViewModel> GeneralSearch(GeneralSearchView Filter, int page);
         List<AccountViewModel> GetLastNAccounts(int N);

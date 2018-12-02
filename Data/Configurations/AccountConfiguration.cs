@@ -12,6 +12,9 @@ namespace Data.Configurations
         public AccountConfiguration()
         {
             ToTable("Accounts");
+            //HasMany(x => x.Services)
+            //    .WithMany(x => x.Accounts);
+
         }
     }
 }

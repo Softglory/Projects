@@ -95,12 +95,14 @@
     <Compile Include="Interfaces\IAdService.cs" />
     <Compile Include="Interfaces\ICompanyService.cs" />
     <Compile Include="Interfaces\ISearchCountService.cs" />
+    <Compile Include="Interfaces\IServiceService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccountKeywordService.cs" />
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\AdService.cs" />
     <Compile Include="Services\CompanyService.cs" />
     <Compile Include="Services\SearchCountService.cs" />
+    <Compile Include="Services\ServiceService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

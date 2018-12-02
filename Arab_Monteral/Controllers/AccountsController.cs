@@ -31,7 +31,7 @@ namespace Arab_Monteral.Controllers
             return View(PagedAccounts);
         }
 
-        [Authorize(Roles = "Admin")]
+  
         public ActionResult AccountProfile(int ID)
         {
             Model.Account Acc = AccountService.GetAccountByID(ID);
@@ -54,6 +54,7 @@ namespace Arab_Monteral.Controllers
                 Company = Acc.Company
             };
             AccView.NoOfSearches = AccountService.CountNoOfSearches(ID);
+            AccView.AccountServices = AccountService.GetAccountServices(ID);
             return View(AccView);
         }
 

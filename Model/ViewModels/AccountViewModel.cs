@@ -12,6 +12,7 @@ namespace Model.ViewModels
         public AccountViewModel()
         {
             Keywords = new List<AccountKeyword>();
+            AccountServices = new List<AccountService>();
         }
         public int AccountId { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "مطلوب")]
@@ -42,6 +43,7 @@ namespace Model.ViewModels
         public DateTime ModifiedOn { get; set; }
         public int NoOfSearches { get; set; }
         public List<AccountKeyword> Keywords { get; set; }
+        public List<AccountService> AccountServices { get; set; }
         public Company Company { get; set; }
     }
 }

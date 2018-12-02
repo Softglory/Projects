@@ -23,8 +23,8 @@ img.emoji {
     background-attachment: fixed !important;
 }
 
-.navBarWithNoAd {
-    /*background: rgba(33, 46, 75, 0.7);*/
+.UserNavBar {
+    background: rgba(33, 46, 75, 0.7);
     padding: 62px 0;
 }
 .adminNavBar {

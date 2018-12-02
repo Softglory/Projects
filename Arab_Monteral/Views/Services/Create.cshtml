@@ -1,0 +1,67 @@
+﻿@model Model.ViewModels.ServiceViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="adminNavBar"></section>
+
+<div class="container mt-15 mb-30">
+
+    @if (Model == null)
+    {
+    <h2>إضافة خدمة </h2>
+    }
+    else
+    {
+    <h2>تعديل الخدمة</h2>
+    }
+
+
+    @using (Html.BeginForm("Create", "Services", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.HiddenFor(model => model.CreatedOn)
+            @Html.HiddenFor(model => model.ModifiedOn)
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.Label("الإسم", htmlAttributes: new { @class = "control-label col-md-2 required" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ServiceName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ServiceName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            
+            <div class="form-group">
+                @Html.Label("موجود", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(model => model.Status, htmlAttributes: new { @checked = true })
+                        @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+        
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @if (Model == null)
+                    {
+                        <input type="submit" value="اضافه" class="btn btn-success" />
+                    }
+                    else
+                    {
+                        <input type="submit" value="تعديل" class="btn btn-success" />
+                    }
+
+                </div>
+            </div>
+        </div>
+    }
+
+
+</div>

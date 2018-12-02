@@ -14,224 +14,266 @@
 }
 
 
-<section class="adminNavBar"></section>
+@if (Request.IsAuthenticated)
+{
+    <section class="adminNavBar"></section>
+}
+else
+{
+    <section class="UserNavBar"></section>
+}
 <section class="blog-section-2">
-<div class="container">
-    <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="list-heading">
-                <h2>@Model.FirstName @Model.LastName</h2>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container">
-<div class="row">
-<!-- right column -->
-<div class="col-md-3 col-xs-12 col-sm-12">
-    <div class="blog-sidebar">
-        <div class="widget">
-            <div class="widget-heading">
-                <h4 class="panel-title">مهن ذو صلة</h4>
-            </div>
-            <div class="recent-ads">
-                <div class="recent-ads-list">
-                    <div class="recent-ads-container">
-                        <a href="#" class="recent-ads-list-image-inner">
-                            <img src="~/Content/wp-content/uploads/sites/5/2018/03/hotels-100x66.jpg" alt="فندق فيرجينيا أجمل">
-                        </a>
-                        <div class="recent-ads-list-content">
-                            <h3 class="recent-ads-list-title">
-                                <a href="~/Content/%d9%81%d9%86%d8%af%d9%82-%d9%81%d9%8a%d8%b1%d8%ac%d9%8a%d9%86%d9%8a%d8%a7-%d8%a3%d8%ac%d9%85%d9%84/index.html">سياحة</a>
-                            </h3>
-                            <ul class="recent-ads-list-location">
-                                <li><a href="~/Content/category/%d9%81%d9%86%d8%a7%d8%af%d9%82-%d8%b1%d8%ae%d9%8a%d8%b5%d8%a9/index.html">23 مهنة</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="recent-ads-list">
-                    <div class="recent-ads-container">
-                        <div class="recent-ads-list-image">
-                            <a href="#" class="recent-ads-list-image-inner">
-                                <img src="~/Content/wp-content/uploads/sites/5/2018/03/beaches-100x66.jpg" alt="3 الشواطئ السرية في أوروبا">
-                            </a>
-                        </div>
-
-                        <div class="recent-ads-list-content">
-                            <h3 class="recent-ads-list-title">
-                                <a href="~/Content/3-%d8%a7%d9%84%d8%b4%d9%88%d8%a7%d8%b7%d8%a6-%d8%a7%d9%84%d8%b3%d8%b1%d9%8a%d8%a9-%d9%81%d9%8a-%d8%a3%d9%88%d8%b1%d9%88%d8%a8%d8%a7/index.html">مهنة 2</a>
-                            </h3>
-                            <ul class="recent-ads-list-location">
-                                <li><a href="~/Content/category/%d8%a7%d9%84%d8%b4%d9%88%d8%a7%d8%b7%d8%a6-%d9%88%d8%a7%d9%84%d8%b4%d9%85%d8%b3/index.html">57 مهنة</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="recent-ads-list">
-                    <div class="recent-ads-container">
-                        <div class="recent-ads-list-image">
-                            <a href="#" class="recent-ads-list-image-inner">
-                                <img src="~/Content/wp-content/uploads/sites/5/2018/03/shopping-lovers-100x66.jpg" alt="عيد لعشاق التسوق؟ الجمعة السوداء ، بالطبع!">
-                            </a>
-                        </div>
-                        <div class="recent-ads-list-content">
-                            <h3 class="recent-ads-list-title">
-                                <a href="~/Content/feast-for-shopping-lovers-black-friday-of-course/index.html">تاجر</a>
-                            </h3>
-                            <ul class="recent-ads-list-location">
-                                <li><a href="~/Content/category/%d8%a7%d9%84%d8%aa%d8%b3%d9%88%d9%82/index.html">20 مهنة</a></li>
-                            </ul>
-                        </div>
-                    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="list-heading">
+                    <h2>@Model.FirstName @Model.LastName</h2>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- end of right column -->
-<!-- middle column -->
-<div class="col-md-6 col-sm-8 col-xs-12  nopadding">
-    <div class="downotwn-blog ">
-        <div class=" masonry_container">
-            <div class="masonery_wrap">
-                <div class="col-md-12 col-sm-6 col-xs-12 masonery_item">
-                    <div class="post-31 post type-post status-publish format-standard has-post-thumbnail hentry category-20">
-                        <div class="new-banner-image_dwt">
-                            <a href="" target="_blank">
-                                <img class="img-responsive" src="~/Content/wp-content/uploads/sites/5/2018/02/b3.jpg" alt="">
-                            </a>
+    <div class="container">
+        <div class="row">
+            <!-- right column -->
+            <div class="col-md-3 col-xs-12 col-sm-12">
+                <div class="blog-sidebar">
+                    <div class="widget">
+                        <div class="widget-heading">
+                            @*<h4 class="panel-title">مهن ذو صلة</h4>*@
+                            <h4 class="panel-title">خدمات مقدمه</h4>
                         </div>
-                        <div class="blog-inner-box col-md-12">
-                            <div class="blog-lower-box">
+                        <div class="recent-ads">
+                            @if (Model.AccountServices != null)
+                            {
+                                foreach (var service in (Model.AccountServices))
+                                 {
+                                     <div class="recent-ads-list">
+                                         <div class="recent-ads-container">
+                                             @*<a href="#" class="recent-ads-list-image-inner">
+                                            <img src="~/Content/wp-content/uploads/sites/5/2018/03/hotels-100x66.jpg" alt="فندق فيرجينيا أجمل">
+                                        </a>*@
+                                             <div class="recent-ads-list-content">
+                                                 <h3 class="recent-ads-list-title">
+                                                     <a href="#">@service.Service.ServiceName</a>
+                                                 </h3>
+                                                 @*<ul class="recent-ads-list-location">
+                                                <li><a href="#">23 مهنة</a></li>
+                                            </ul>*@
+                                             </div>
+                                         </div>
+                                     </div>
+                                 }
+                            }
+                           
 
-                                <div class="image">
-                                    <a href="">
-                                        <img src="~/@Model.CardImage" onerror="this.src = '../../Uploads/Default.jpg'" alt="@Model.FirstName" class="img-responsive table-bordered">
-
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<div class="col-md-3 col-xs-12 col-sm-12">
+            <div class="blog-sidebar">
+                <div class="widget">
+                    <div class="widget-heading">
+                        <h4 class="panel-title">مهن ذو صلة</h4>
+                    </div>
+                    <div class="recent-ads">
+                        <div class="recent-ads-list">
+                            <div class="recent-ads-container">
+                                <a href="#" class="recent-ads-list-image-inner">
+                                    <img src="~/Content/wp-content/uploads/sites/5/2018/03/hotels-100x66.jpg" alt="فندق فيرجينيا أجمل">
+                                </a>
+                                <div class="recent-ads-list-content">
+                                    <h3 class="recent-ads-list-title">
+                                        <a href="~/Content/%d9%81%d9%86%d8%af%d9%82-%d9%81%d9%8a%d8%b1%d8%ac%d9%8a%d9%86%d9%8a%d8%a7-%d8%a3%d8%ac%d9%85%d9%84/index.html">سياحة</a>
+                                    </h3>
+                                    <ul class="recent-ads-list-location">
+                                        <li><a href="~/Content/category/%d9%81%d9%86%d8%a7%d8%af%d9%82-%d8%b1%d8%ae%d9%8a%d8%b5%d8%a9/index.html">23 مهنة</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recent-ads-list">
+                            <div class="recent-ads-container">
+                                <div class="recent-ads-list-image">
+                                    <a href="#" class="recent-ads-list-image-inner">
+                                        <img src="~/Content/wp-content/uploads/sites/5/2018/03/beaches-100x66.jpg" alt="3 الشواطئ السرية في أوروبا">
                                     </a>
                                 </div>
-                                <br/>
-                                <div class="row">
-                                    <div class="social-icons col-md-8">
-                                        <ul class="">
-                                            <li><a href="#"><img src="~/Content/assets/profile_contacts/fb.png" class="circle" style="width:35px; height:35px"/></a></li>
-                                            <li><a href="#"><img src="~/Content/assets/profile_contacts/twitter.png" class="circle" style="width:35px; height:35px"/></a></li>
-                                            <li><a href="#"><img src="~/Content/assets/profile_contacts/google_map.png" style="width:35px; height:35px"/></a></li>
-                                            <li><a href="#"><img src="~/Content/assets/profile_contacts/website.png" style="width:35px; height:35px"/></a></li>
-                                            <li><a href="#"><i class="show-more-button"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-4 col-sm-12 center center-block" style="padding-top:12px; font-size:17px">
-                                        عدد مرات البحث :
-                                        <span class="badge"> @Model.NoOfSearches</span>
-                                    </div>
+
+                                <div class="recent-ads-list-content">
+                                    <h3 class="recent-ads-list-title">
+                                        <a href="~/Content/3-%d8%a7%d9%84%d8%b4%d9%88%d8%a7%d8%b7%d8%a6-%d8%a7%d9%84%d8%b3%d8%b1%d9%8a%d8%a9-%d9%81%d9%8a-%d8%a3%d9%88%d8%b1%d9%88%d8%a8%d8%a7/index.html">مهنة 2</a>
+                                    </h3>
+                                    <ul class="recent-ads-list-location">
+                                        <li><a href="~/Content/category/%d8%a7%d9%84%d8%b4%d9%88%d8%a7%d8%b7%d8%a6-%d9%88%d8%a7%d9%84%d8%b4%d9%85%d8%b3/index.html">57 مهنة</a></li>
+                                    </ul>
                                 </div>
-                                <div class="profileBtn">
-                                    <a class="btn btn-sm btn-default" href="#"><span class="glyphicon glyphicon-file"></span> تحميل PDF</a>
-                                    <a class="btn btn-sm btn-default" href="#"><span class="glyphicon glyphicon-share"></span> شارك</a>
-                                    <a class="btn btn-sm btn-default" href="#"><span class="glyphicon glyphicon-user"></span> أرسل لصديق</a>
-                                    <a class="btn btn-sm btn-default" href="#"><span class="glyphicon glyphicon-print"></span> طباعة</a>
-                                    <a class="btn btn-sm btn-default" href="#" style="margin-top:5px"><span class="glyphicon glyphicon-phone"></span> ارسل الى الهاتف</a>
-                                    <a class="btn btn-sm btn-default" href="#" style="margin-top:5px"><span class="glyphicon glyphicon-book"></span> قراءة المزيد</a>
+                            </div>
+                        </div>
+                        <div class="recent-ads-list">
+                            <div class="recent-ads-container">
+                                <div class="recent-ads-list-image">
+                                    <a href="#" class="recent-ads-list-image-inner">
+                                        <img src="~/Content/wp-content/uploads/sites/5/2018/03/shopping-lovers-100x66.jpg" alt="عيد لعشاق التسوق؟ الجمعة السوداء ، بالطبع!">
+                                    </a>
+                                </div>
+                                <div class="recent-ads-list-content">
+                                    <h3 class="recent-ads-list-title">
+                                        <a href="~/Content/feast-for-shopping-lovers-black-friday-of-course/index.html">تاجر</a>
+                                    </h3>
+                                    <ul class="recent-ads-list-location">
+                                        <li><a href="~/Content/category/%d8%a7%d9%84%d8%aa%d8%b3%d9%88%d9%82/index.html">20 مهنة</a></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class=" masonry_container">
-            <div class="masonery_wrap">
-                <div class="col-md-12 col-sm-6 col-xs-12 masonery_item">
-                    <div class="post-31 post type-post status-publish format-standard has-post-thumbnail hentry category-20">
-                        <div class="blog-inner-box col-md-12">
-                            <div class="blog-lower-box">
-                                <form method="post" id="search_form_ajax">
-                                    <div class="dwt-new-filterz">
-                                        <div class="col-md-6 col-xs-12 col-sm-4">
-                                            <div class="form-group dwt-for-map">
-                                                <div class="typeahead__container">
-                                                    <div class="typeahead__field">
-                                                        <div class="typeahead__query">
-                                                            <input name="by_title" value="" autocomplete="off" type="search" class="for_search_pages form-control specific_search" placeholder="الإسم الأول">
-                                                        </div>
-                                                    </div>
+        </div>*@
+            <!-- end of right column -->
+            <!-- middle column -->
+            <div class="col-md-6 col-sm-8 col-xs-12  nopadding">
+                <div class="downotwn-blog ">
+                    <div class=" masonry_container">
+                        <div class="masonery_wrap">
+                            <div class="col-md-12 col-sm-6 col-xs-12 masonery_item">
+                                <div class="post-31 post type-post status-publish format-standard has-post-thumbnail hentry category-20">
+                                    <div class="new-banner-image_dwt">
+                                        <a href="" target="_blank">
+                                            <img class="img-responsive" src="~/Content/wp-content/uploads/sites/5/2018/02/b3.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="blog-inner-box col-md-12">
+                                        <div class="blog-lower-box">
+
+                                            <div class="image">
+                                                <a href="">
+                                                    <img src="~/@Model.CardImage" onerror="this.src = '../../Uploads/Default.jpg'" alt="@Model.FirstName" class="img-responsive table-bordered">
+
+                                                </a>
+                                            </div>
+                                            <br />
+                                            <div class="row">
+                                                <div class="social-icons col-md-8">
+                                                    <ul class="">
+                                                        <li><a href="#"><img src="~/Content/assets/profile_contacts/fb.png" class="circle" style="width:35px; height:35px" /></a></li>
+                                                        <li><a href="#"><img src="~/Content/assets/profile_contacts/twitter.png" class="circle" style="width:35px; height:35px" /></a></li>
+                                                        <li><a href="#"><img src="~/Content/assets/profile_contacts/google_map.png" style="width:35px; height:35px" /></a></li>
+                                                        <li><a href="#"><img src="~/Content/assets/profile_contacts/website.png" style="width:35px; height:35px" /></a></li>
+                                                        <li><a href="#"><i class="show-more-button"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-md-4 col-sm-12 center center-block" style="padding-top:12px; font-size:17px">
+                                                    عدد مرات البحث :
+                                                    <span class="badge"> @Model.NoOfSearches</span>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6 col-xs-12 col-sm-4">
-                                            <div class="form-group dwt-for-map">
-                                                <div class="typeahead__container">
-                                                    <div class="typeahead__field">
-                                                        <div class="typeahead__query">
-                                                            <input name="by_title" value="" autocomplete="off" type="search" class="for_search_pages form-control specific_search" placeholder="الإسم الأخير">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-xs-12 col-sm-4">
-                                            <div class="form-group dwt-for-map">
-                                                <div class="typeahead__container">
-                                                    <div class="typeahead__field">
-                                                        <div class="typeahead__query">
-                                                            <input name="by_title" value="" autocomplete="off" type="search" class="for_search_pages form-control specific_search" placeholder="رقم التليفون">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-xs-12 col-sm-4">
-                                            <div class="form-group dwt-for-map">
-                                                <div class="typeahead__container">
-                                                    <div class="typeahead__field">
-                                                        <div class="typeahead__query">
-                                                            <input name="by_title" value="" autocomplete="off" type="search" class="for_search_pages form-control specific_search" placeholder="إسم الشركة">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-xs-12 col-sm-12">
-                                            <div class="search-widget">
-                                                <div class="form-group specific-search">
-                                                    <input class="form-control" id="address_location" name="street_address" placeholder="العنوان او المدينة" value="" type="text">
-                                                    <i class="detect-me fa fa-crosshairs"></i>
-                                                    <input name="latitude" type="hidden" id="search_lat" value="">
-                                                    <input name="longitude" type="hidden" id="search_lon" value="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-xs-12 col-sm-4">
-                                            <div class="search-widget">
-                                                <button class="btn col-md-12 btn-theme" id="btnSearch">إظهر النتائج</button>
+                                            <div class="profileBtn">
+                                                <a class="btn btn-sm btn-default" href="#"><span class="glyphicon glyphicon-file"></span> تحميل PDF</a>
+                                                <a class="btn btn-sm btn-default" href="#"><span class="glyphicon glyphicon-share"></span> شارك</a>
+                                                <a class="btn btn-sm btn-default" href="#"><span class="glyphicon glyphicon-user"></span> أرسل لصديق</a>
+                                                <a class="btn btn-sm btn-default" href="#"><span class="glyphicon glyphicon-print"></span> طباعة</a>
+                                                <a class="btn btn-sm btn-default" href="#" style="margin-top:5px"><span class="glyphicon glyphicon-phone"></span> ارسل الى الهاتف</a>
+                                                <a class="btn btn-sm btn-default" href="#" style="margin-top:5px"><span class="glyphicon glyphicon-book"></span> قراءة المزيد</a>
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" masonry_container">
+                        <div class="masonery_wrap">
+                            <div class="col-md-12 col-sm-6 col-xs-12 masonery_item">
+                                <div class="post-31 post type-post status-publish format-standard has-post-thumbnail hentry category-20">
+                                    <div class="blog-inner-box col-md-12">
+                                        <div class="blog-lower-box">
+                                            <form method="post" id="search_form_ajax">
+                                                <div class="dwt-new-filterz">
+                                                    <div class="col-md-6 col-xs-12 col-sm-4">
+                                                        <div class="form-group dwt-for-map">
+                                                            <div class="typeahead__container">
+                                                                <div class="typeahead__field">
+                                                                    <div class="typeahead__query">
+                                                                        <input name="by_title" value="" autocomplete="off" type="search" class="for_search_pages form-control specific_search" placeholder="الإسم الأول">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-12 col-sm-4">
+                                                        <div class="form-group dwt-for-map">
+                                                            <div class="typeahead__container">
+                                                                <div class="typeahead__field">
+                                                                    <div class="typeahead__query">
+                                                                        <input name="by_title" value="" autocomplete="off" type="search" class="for_search_pages form-control specific_search" placeholder="الإسم الأخير">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-12 col-sm-4">
+                                                        <div class="form-group dwt-for-map">
+                                                            <div class="typeahead__container">
+                                                                <div class="typeahead__field">
+                                                                    <div class="typeahead__query">
+                                                                        <input name="by_title" value="" autocomplete="off" type="search" class="for_search_pages form-control specific_search" placeholder="رقم التليفون">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-12 col-sm-4">
+                                                        <div class="form-group dwt-for-map">
+                                                            <div class="typeahead__container">
+                                                                <div class="typeahead__field">
+                                                                    <div class="typeahead__query">
+                                                                        <input name="by_title" value="" autocomplete="off" type="search" class="for_search_pages form-control specific_search" placeholder="إسم الشركة">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-12 col-sm-12">
+                                                        <div class="search-widget">
+                                                            <div class="form-group specific-search">
+                                                                <input class="form-control" id="address_location" name="street_address" placeholder="العنوان او المدينة" value="" type="text">
+                                                                <i class="detect-me fa fa-crosshairs"></i>
+                                                                <input name="latitude" type="hidden" id="search_lat" value="">
+                                                                <input name="longitude" type="hidden" id="search_lon" value="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-xs-12 col-sm-4">
+                                                        <div class="search-widget">
+                                                            <button class="btn col-md-12 btn-theme" id="btnSearch">إظهر النتائج</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-md-12 col-xs-12 col-sm-12 ">
+                    <div class="extra-sec">
+                    </div>
+                </div>
             </div>
+            <!-- end of middle column -->
+            <!-- left column -->
+            <div class="col-md-3 col-xs-12 col-sm-12">
+                <div class="blog-sidebar">
+                    <div class="list-image-section">
+                        <a href="" target="_blank"><img class="img-responsive center center-block" src="~/Content/wp-content/uploads/sites/5/2018/02/b2.jpg" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <!-- end of left column -->
         </div>
     </div>
-    <div class="col-md-12 col-xs-12 col-sm-12 ">
-        <div class="extra-sec">
-        </div>
-    </div>
-</div>
-<!-- end of middle column -->
-<!-- left column -->
-<div class="col-md-3 col-xs-12 col-sm-12">
-    <div class="blog-sidebar">
-        <div class="list-image-section">
-            <a href="" target="_blank"><img class="img-responsive center center-block" src="~/Content/wp-content/uploads/sites/5/2018/02/b2.jpg" alt=""></a>
-        </div>
-    </div>
-</div>
-<!-- end of left column -->
-</div>
-</div>
 </section>

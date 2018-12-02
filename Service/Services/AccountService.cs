@@ -5,6 +5,7 @@ using Model.ViewModels;
 using PagedList;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Net.Mail;
@@ -20,13 +21,15 @@ namespace Service
         private readonly IAccountRepository AccountRepository;
         private readonly ISearchCountRepository SearchCountRepository;
         private readonly IAccountKeywordRepository AccountKeywordRepository;
+        private readonly IAccountServiceRepository AccountServiceRepository;
         private readonly IUnitOfWork unitOfWork;
 
-        public AccountService(IAccountRepository AccountRepository, ISearchCountRepository SearchCountRepository, IAccountKeywordRepository AccountKeywordRepository, IUnitOfWork unitOfWork)
+        public AccountService(IAccountRepository AccountRepository, ISearchCountRepository SearchCountRepository, IAccountKeywordRepository AccountKeywordRepository, IAccountServiceRepository AccountServiceRepository, IUnitOfWork unitOfWork)
         {
             this.AccountRepository = AccountRepository;
             this.SearchCountRepository = SearchCountRepository;
             this.AccountKeywordRepository = AccountKeywordRepository;
+            this.AccountServiceRepository = AccountServiceRepository;
             this.unitOfWork = unitOfWork;
         }
 
@@ -143,13 +146,20 @@ namespace Service
             return count;
         }
 
+        public List<Model.AccountService> GetAccountServices(int AccountId)
+        {
+            List<Model.AccountService> AccountServices = AccountServiceRepository.Get(x => x.AccountId == AccountId).Include("Service").ToList();
+            return AccountServices;
+        }
+
         public IPagedList<AccountViewModel> FilterAccounts(SearchViewModel Filter,int page)
         {
             List<Account> Accounts = new List<Account>();
             Accounts = AccountRepository.Get(x => (x.FirstName == Filter.FirstName || String.IsNullOrEmpty(Filter.FirstName))
                                     && (x.LastName == Filter.LastName || String.IsNullOrEmpty(Filter.LastName))
                                     && (x.Location == Filter.Location || String.IsNullOrEmpty(Filter.Location))
-                                    && (x.Phone == Filter.Phone || String.IsNullOrEmpty(Filter.Phone))).ToList();
+                                    && (x.Phone == Filter.Phone || String.IsNullOrEmpty(Filter.Phone))
+                                                  && x.Status == true).ToList();
            
             List<AccountViewModel> AccountsView = new List<AccountViewModel>();
             foreach (Model.Account Acc in Accounts)
@@ -218,7 +228,7 @@ namespace Service
 
         public List<AccountViewModel> GetLastNAccounts(int N)
         {
-            List<Account> Accounts = AccountRepository.GetAll().AsEnumerable().Reverse().Where(x=>x.CardImage != null).Take(N).Reverse().ToList();
+            List<Account> Accounts = AccountRepository.GetAll().AsEnumerable().Reverse().Where(x=>x.CardImage != null && x.Status == true).Take(N).Reverse().ToList();
             List<AccountViewModel> AccountsView = new List<AccountViewModel>();
             foreach (Model.Account Acc in Accounts)
             {

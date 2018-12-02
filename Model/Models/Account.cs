@@ -8,6 +8,11 @@ namespace Model
 {
     public class Account : IEntityBase
     {
+        public Account()
+        {
+            Keywords = new List<AccountKeyword>();
+            AccountServices = new List<AccountService>();
+        }
         public int AccountId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -28,6 +33,7 @@ namespace Model
         public DateTime ModifiedOn { get; set; }
         public Company Company { get; set; }
         public List<AccountKeyword> Keywords { get; set; }
+        public List<AccountService> AccountServices { get; set; }
 
     }
 }

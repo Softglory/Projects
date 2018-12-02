@@ -83,10 +83,12 @@
   <ItemGroup>
     <Compile Include="Configurations\AccountConfiguration.cs" />
     <Compile Include="Configurations\AccountKeywordConfiguration.cs" />
+    <Compile Include="Configurations\AccountServiceConfiguration.cs" />
     <Compile Include="Configurations\AdConfiguration.cs" />
     <Compile Include="Configurations\CompanyConfiguration.cs" />
     <Compile Include="Configurations\EntityBaseConfiguration.cs" />
     <Compile Include="Configurations\SearchCountConfiguration.cs" />
+    <Compile Include="Configurations\ServiceConfiguration.cs" />
     <Compile Include="Infrastructure\DbFactory.cs" />
     <Compile Include="Infrastructure\Disposable.cs" />
     <Compile Include="Infrastructure\IDbFactory.cs" />
@@ -124,21 +126,29 @@
     <Compile Include="Migrations\201811291423258_AddProfColToAccountTable.Designer.cs">
       <DependentUpon>201811291423258_AddProfColToAccountTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812021214214_ServicesTable.cs" />
+    <Compile Include="Migrations\201812021214214_ServicesTable.Designer.cs">
+      <DependentUpon>201812021214214_ServicesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\Interfaces\IAccountKeyword.cs" />
+    <Compile Include="Repositories\Interfaces\IAccountKeywordRepository.cs" />
     <Compile Include="Repositories\Interfaces\IAccountRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IAccountServiceRepository.cs" />
     <Compile Include="Repositories\Interfaces\IAdRepository.cs" />
     <Compile Include="Repositories\Interfaces\ICompanyRepository.cs" />
     <Compile Include="Repositories\Interfaces\IEntityBaseRepository.cs" />
     <Compile Include="Repositories\Interfaces\ISearchCountReporitory.cs" />
-    <Compile Include="Repositories\Repositories\AccountKeyword.cs" />
+    <Compile Include="Repositories\Interfaces\IServiceRepository.cs" />
+    <Compile Include="Repositories\Repositories\AccountKeywordRepository.cs" />
     <Compile Include="Repositories\Repositories\AccountRepository.cs" />
+    <Compile Include="Repositories\Repositories\AccountServiceRepository.cs" />
     <Compile Include="Repositories\Repositories\AdRepository.cs" />
     <Compile Include="Repositories\Repositories\CompanyRepository.cs" />
     <Compile Include="Repositories\Repositories\EntityBaseRepository.cs" />
     <Compile Include="DBEntities.cs" />
     <Compile Include="Repositories\Repositories\SearchCountReporitory.cs" />
+    <Compile Include="Repositories\Repositories\ServiceRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -168,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811291423258_AddProfColToAccountTable.resx">
       <DependentUpon>201811291423258_AddProfColToAccountTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812021214214_ServicesTable.resx">
+      <DependentUpon>201812021214214_ServicesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
