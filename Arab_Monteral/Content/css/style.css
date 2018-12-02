@@ -358,3 +358,9 @@ ul.pagination li a:hover:not(.active)
         color: #00ABE3;
         background: #fff;
     }
+
+.activeNavBar {
+    background: #ffffff;
+    color: black !important;
+    border-radius: 10%;
+}
