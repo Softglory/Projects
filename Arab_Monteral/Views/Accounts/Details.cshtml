@@ -56,7 +56,10 @@
         <tr>
             <th>صورة البطاقة</th>
             <td>
-                <img src="~/@Model.CardImage" onerror="this.src = '@HttpRuntime.AppDomainAppVirtualPath/Uploads/Default.jpg'" style="width:250px; height:150px" class="card-200">
+                <a href="~/Accounts/AccountProfile/@Model.AccountId">
+                    <img src="~/@Model.CardImage" onerror="this.src = '@HttpRuntime.AppDomainAppVirtualPath/Uploads/Default.jpg'" style="width:250px; height:150px" class="card-200">
+                </a>
+               
             </td>
         </tr>
     </table>

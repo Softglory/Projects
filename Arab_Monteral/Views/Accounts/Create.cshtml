@@ -87,9 +87,9 @@
                     @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
 
                     @*@if(Model != null)
-                        {
-                            <a style="color: #b90202e0" href="http://maps.google.com/?q=@Model.Location" target="_blank" rel="noopener noreferrer"> Location on map</a>
-                        }*@
+                {
+                    <a style="color: #b90202e0" href="http://maps.google.com/?q=@Model.Location" target="_blank" rel="noopener noreferrer"> Location on map</a>
+                }*@
 
                 </div>
             </div>
@@ -134,7 +134,7 @@
             <div class="form-group">
                 <label class="control-label col-md-2">تحميل المزيد من المعلومات</label>
                 <div class="col-md-10">
-                    <input type="file" name="infoFile" id="files" />
+                    <input type="file" name="infoFile" id="infoFile" />
                 </div>
             </div>
 
@@ -173,6 +173,31 @@
                         @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
                     </div>
                 </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("الخدمات", htmlAttributes: new { @class = "control-label col-md-2" })
+                @if (ViewBag.ServicesList != null)
+                {
+                    var index = 0;
+                    foreach (var service in ViewBag.ServicesList)
+                    {
+                        <div class="col-md-10">
+                            <div class="checkbox">
+                                <label>
+                                 
+                                    <input type="checkbox"
+                                           name="SelectedServices"
+                                           value="@service.ServiceId" /> @service.ServiceName
+                                </label>
+                            </div>
+                        </div>
+                        index++;
+                    }
+
+
+                }
+               
             </div>
 
 

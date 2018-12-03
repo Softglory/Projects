@@ -10,8 +10,8 @@ namespace Service
     {
         List<AccountViewModel> GetAccounts();
         Account GetAccountByID(int ID);
-        void CreateAccount(Account Account);
-        void EditAccount(Account Account);
+        void CreateAccount(Account Account, List<int> SelectedServices);
+        void EditAccount(Account Account, List<int> SelectedServices);
         void RemoveAccount(int AccountId);
         void SaveAccount();
         int CountNoOfSearches(int ID);

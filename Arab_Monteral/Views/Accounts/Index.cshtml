@@ -41,7 +41,10 @@
                             @Html.DisplayFor(modelItem => item.LastName)
                         </td>
                         <td>
-                            <img for="files" src="@item.CardImage" onerror="this.src = 'Uploads/Default.jpg'" style="width:220px; height:99px;margin-right: 15%;" class="card-200">
+                            <a href="~/Accounts/AccountProfile/@item.AccountId">
+                                <img for="files" src="@item.CardImage" onerror="this.src = 'Uploads/Default.jpg'" style="width:220px; height:99px;margin-right: 15%;" class="card-200">
+                            </a>
+                            
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.ProfessionTitle)

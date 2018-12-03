@@ -13,6 +13,7 @@ namespace Model.ViewModels
         {
             Keywords = new List<AccountKeyword>();
             AccountServices = new List<AccountService>();
+            SelectedServices = new List<int>();
         }
         public int AccountId { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "مطلوب")]
@@ -44,6 +45,9 @@ namespace Model.ViewModels
         public int NoOfSearches { get; set; }
         public List<AccountKeyword> Keywords { get; set; }
         public List<AccountService> AccountServices { get; set; }
+       
         public Company Company { get; set; }
+
+        public List<int> SelectedServices { get; set; }
     }
 }

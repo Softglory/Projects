@@ -16,9 +16,14 @@ namespace Arab_Monteral.Controllers
     public class AccountsController : Controller
     {
         private readonly IAccountService AccountService;
-        public AccountsController(IAccountService accountService)
+        private readonly IReportService ReportService;
+        private readonly IServiceService ServiceService;
+
+        public AccountsController(IAccountService accountService, IReportService ReportService, IServiceService ServiceService)
         {
             this.AccountService = accountService;
+            this.ReportService = ReportService;
+            this.ServiceService = ServiceService;
         }
 
         // GET: Accounts
@@ -61,6 +66,7 @@ namespace Arab_Monteral.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create(int? ID)
         {
+            ViewBag.ServicesList = ServiceService.GetServices();
             if (ID != null) //edit
             {
                 Model.Account Acc = AccountService.GetAccountByID(ID ?? 0);
@@ -70,6 +76,10 @@ namespace Arab_Monteral.Controllers
                     AccountId = Acc.AccountId,
                     FirstName = Acc.FirstName,
                     LastName = Acc.LastName,
+                    FirstNameEn = Acc.FirstNameEn,
+                    LastNameEn = Acc.LastNameEn,
+                    Email = Acc.Email,
+                    ProfessionTitleEn = Acc.ProfessionTitleEn,
                     CardImage = Acc.CardImage,
                     ProfessionTitle = Acc.ProfessionTitle,
                     Phone = Acc.Phone,
@@ -82,7 +92,8 @@ namespace Arab_Monteral.Controllers
                     CreatedOn = Acc.CreatedOn,
                     ModifiedOn = Acc.ModifiedOn,
                     Company = Acc.Company,
-                    Keywords = Acc.Keywords
+                    Keywords = Acc.Keywords,
+                    SelectedServices = AccountService.GetAccountServices(Acc.AccountId).Select(x=>x.ServiceId).ToList()
                 };
                 return View(AccView);
             }
@@ -121,8 +132,12 @@ namespace Arab_Monteral.Controllers
                     AccountId = AccountView.AccountId,
                     FirstName = AccountView.FirstName,
                     LastName = AccountView.LastName,
+                    FirstNameEn = AccountView.FirstNameEn,
+                    LastNameEn = AccountView.LastNameEn,
+                    Email = AccountView.Email,
                     CardImage = AccountView.CardImage,
                     ProfessionTitle = AccountView.ProfessionTitle,
+                    ProfessionTitleEn = AccountView.ProfessionTitleEn,
                     Phone = AccountView.Phone,
                     CompanyId = AccountView.CompanyId,
                     Location = AccountView.Location,
@@ -133,18 +148,19 @@ namespace Arab_Monteral.Controllers
                     CreatedOn = AccountView.CreatedOn,
                     ModifiedOn = AccountView.ModifiedOn,
                     Company = AccountView.Company,
-                    Keywords = AccountView.Keywords
+                    Keywords = AccountView.Keywords,
+
                 };
 
                 if (ID == null) //add
                 {
-                    AccountService.CreateAccount(Acc);
+                    AccountService.CreateAccount(Acc, AccountView.SelectedServices);
                     Acc = AccountService.GetAccountByName(Acc.FirstName, Acc.LastName);
                 }
                 else //update
                 {
                     Acc.AccountId = ID ?? 0;
-                    AccountService.EditAccount(Acc);
+                    AccountService.EditAccount(Acc, AccountView.SelectedServices);
                 }
 
                 return Redirect("~/Accounts/Details/" + Acc.AccountId);
@@ -256,7 +272,7 @@ namespace Arab_Monteral.Controllers
                     LastNameEn = AccountView.LastNameEn
                 };
 
-                AccountService.CreateAccount(Acc);
+                AccountService.CreateAccount(Acc, AccountView.SelectedServices);
                 Acc = AccountService.GetAccountByName(Acc.FirstName, Acc.LastName);
 
                 //send email to both the user and the admin 
@@ -287,6 +303,14 @@ namespace Arab_Monteral.Controllers
             
             IPagedList<AccountViewModel> PagedAccounts = AccountService.AccountRequests(1);
             return View("AccountRequests", PagedAccounts);
+        }
+
+        public ActionResult DownloadProfileReport(int AccountId)
+        {
+            string fileName = "Profile.pdf";
+            byte[] fileBytes = ReportService.DownloadAccountProfile(AccountId);
+            return File(fileBytes, "application/pdf", fileName);
+
         }
     }
 }

@@ -69,7 +69,9 @@ namespace Service
             return Account;
         }
 
-        public void CreateAccount(Account Account)
+       
+
+        public void CreateAccount(Account Account, List<int> SelectedServices)
         {
             Account Exists = AccountRepository.Get(x => x.FirstName == Account.FirstName && x.LastName == Account.LastName).FirstOrDefault();
             if (Exists != null)
@@ -89,10 +91,24 @@ namespace Service
                 word.Status = true;
                 AccountKeywordRepository.Add(word);
             }
+
+            //Add Account Services
+            foreach (var serviceId in SelectedServices)
+            {
+                Model.AccountService AccService = new Model.AccountService();
+                AccService.AccountId = Account.AccountId;
+                AccService.ServiceId = serviceId;
+                AccService.Status = true;
+                AccService.CreatedOn = DateTime.Now;
+                AccService.ModifiedOn = DateTime.Now;
+
+
+                AccountServiceRepository.Add(AccService);
+            }
             SaveAccount();
         }
 
-        public void EditAccount(Account Account)
+        public void EditAccount(Account Account, List<int> SelectedServices)
         {
             Account.ModifiedOn = DateTime.Now;
             if (Account.CardImage == null) // no new image choosen
@@ -117,6 +133,29 @@ namespace Service
                 AccountKeywordRepository.Delete(word);
                 
                 AccountKeywordRepository.Add(newWord);
+            }
+
+            //Add Account Services
+            foreach (int serviceId in SelectedServices)
+            {
+                Model.AccountService AccService = new Model.AccountService();
+                AccService.AccountId = Account.AccountId;
+                AccService.ServiceId = serviceId;
+                AccService.Status = true;
+                AccService.CreatedOn = DateTime.Now;
+                AccService.ModifiedOn = DateTime.Now;
+
+                List<Model.AccountService> AccountServices =AccountServiceRepository.Get(x => x.AccountId == Account.AccountId).ToList();
+                if (AccountServices != null)
+                {
+                    foreach (Model.AccountService OldService in AccountServices)
+                    {
+                        AccountServiceRepository.Delete(OldService);
+                    }
+                        
+                }
+                  
+                AccountServiceRepository.Add(AccService);
             }
 
             Account.Keywords = null;
